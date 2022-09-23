@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Animre - *An*alyze , *im*prove , *re*peat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+***An***alyze , ***Im***prove , ***Re***peat in short - **Animre** is a website that will help you to **Analyze your resume** and helps you to **improve** according to the response that you are getting from the **recruiter that are visiting your resume.**
 
-## Available Scripts
+### Table of Contents
 
-In the project directory, you can run:
+- [Project Details](https://github.com/Harshchourasiya/Resume_backend#project-details)
+- [Techonologies](https://github.com/Harshchourasiya/Resume_backend#technologies)
+- [Setup](https://github.com/Harshchourasiya/Resume_backend#setup)
+- [Understand the Codebase](https://github.com/Harshchourasiya/Resume_backend#understand-the-codebase)
+- [Don't Like Backend?](https://github.com/Harshchourasiya/Resume_backend#dont-like-backend)
+- [Special Thanks for Contributors](https://github.com/Harshchourasiya/Resume_backend#special-thanks-for-contributors)
 
-### `npm start`
+## Project Details
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The website can solve the issue that mostly Freshers for IT sector struggle like many peoples share there resume online but don't get any response. So This website help the User to analyze the resume through recruiter behaviour and improve accordingly.
+If you have time you should also read the story of the user (offcourse Future user) How this website will help them. This story will Help you to deeply understand this website's goal. It's a small story [here](Story.md).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you don't have time, Following the main features of the website:-
 
-### `npm test`
+- User can create 5 Resumes and Edit them anytime.
+- User can Add Access Restriction.
+- User can Analyze Every Resume.
+- and Many more...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- Node : 14 
+- Express : 4
+- Mongodb : 4.8
+- Mongoose : 6
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Create a Clone of this Project in your system.
+2. Open Project on your IDE.
+3. Run Mongodb server by command ```mongod```
+4. Run command ```npm install```
+5. Run command ```npm run test``` (For Testing)
+6. Run command ```npm run start```
+7. The API starts running in ```localhost:3001``` 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Understand The Codebase
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In this section We will discuss some important thing about codebase that might help you.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **helper folder**: Like it's name this folder consists of helper files that will reduce our work like send mail, respones and crypto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **test folder**: Like it's name this folder consists of test files that will test our API every time you run ```npm run test``` command.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **index.js file**: You can get the idea of the API from this file. You can read the comment of every api request like what data it should have in its body and What data it will return. (I will create a documentation of the API later).
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Don't Like Backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you don't like or don't know backend then you can contribute on its frontend part as well from here.
 
-### Code Splitting
+## Special Thanks for Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you contribute on this project then you get a tag on this website wheneven someone visit your resume on this website. They are able to see the tag that's shows that you help us in creating this website. It's not a big deal but it's the least we can do for our contributor. I again encourage you to read this [story](Story.md) if you have time.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***If you face any problem or want to give any suggestion Please Raise a Issue.***
