@@ -29,7 +29,7 @@ If you don't have time, Following the main features of the website:-
 
 ## Setup
 
-1. You first need to setup backend before you start working on frontend *(I know it is a bit annoying but I will try to publish backend test API on server soon but right now You have to setup backend on your System).* You can see the How to setup backend from [here](https://github.com/Harshchourasiya/Resume_backend/blob/main/Readme.md#setup).
+1. You first need to setup backend before you start working on frontend *(I know it is a bit annoying but I will try to publish backend test API on server soon but right now You have to setup backend on your System).* You can see the How to setup backend from [here](https://github.com/Harshchourasiya/Resume_backend#setup).
 2. You need to Clone this project in your System with ```git clone https://github.com/Harshchourasiya/resume_frontend.git```.
 3. Enter ```cd resume_frontend``` command.
 4. Enter ```npm start``` command.
