@@ -4,12 +4,11 @@
 
 ### Table of Contents
 
-- [Project Details](https://github.com/Harshchourasiya/Resume_backend#project-details)
-- [Techonologies](https://github.com/Harshchourasiya/Resume_backend#technologies)
-- [Setup](https://github.com/Harshchourasiya/Resume_backend#setup)
-- [Understand the Codebase](https://github.com/Harshchourasiya/Resume_backend#understand-the-codebase)
-- [Don't Like Backend?](https://github.com/Harshchourasiya/Resume_backend#dont-like-backend)
-- [Special Thanks for Contributors](https://github.com/Harshchourasiya/Resume_backend#special-thanks-for-contributors)
+- [Project Details](https://github.com/Harshchourasiya/resume_frontend#project-details)
+- [Techonologies](https://github.com/Harshchourasiya/resume_frontend#technologies)
+- [Setup](https://github.com/Harshchourasiya/resume_frontend#setup)
+- [Don't Like FrontEnd?](https://github.com/Harshchourasiya/resume_frontend#dont-like-frontend)
+- [Special Thanks for Contributors](https://github.com/Harshchourasiya/resume_frontend#special-thanks-for-contributors)
 
 ## Project Details
 
@@ -25,36 +24,21 @@ If you don't have time, Following the main features of the website:-
 
 ## Technologies
 
-- Node : 14 
-- Express : 4
-- Mongodb : 4.8
-- Mongoose : 6
+- React : 18.2 
+- Material UI : 5.10
 
 ## Setup
 
-1. Create a Clone of this Project in your system.
-2. Open Project on your IDE.
-3. Run Mongodb server by command ```mongod```
-4. Run command ```npm install```
-5. Run command ```npm run test``` (For Testing)
-6. Run command ```npm run start```
-7. The API starts running in ```localhost:3001``` 
+1. You first need to setup backend before you start working on frontend *(I know it is a bit annoying but I will try to publish backend test API on server soon but right now You have to setup backend on your System).* You can see the How to setup backend from [here](https://github.com/Harshchourasiya/Resume_backend/blob/main/Readme.md#setup).
+2. You need to Clone this project in your System with ```git clone https://github.com/Harshchourasiya/resume_frontend.git```.
+3. Enter ```cd resume_frontend``` command.
+4. Enter ```npm start``` command.
+5. Website start running in ```localhost:3000```.
 
 
-## Understand The Codebase
+## Don't Like FrontEnd
 
-In this section We will discuss some important thing about codebase that might help you.
-
-- **helper folder**: Like it's name this folder consists of helper files that will reduce our work like send mail, respones and crypto.
-
-- **test folder**: Like it's name this folder consists of test files that will test our API every time you run ```npm run test``` command.
-
-- **index.js file**: You can get the idea of the API from this file. You can read the comment of every api request like what data it should have in its body and What data it will return. (I will create a documentation of the API later).
-
-
-## Don't Like Backend
-
-If you don't like or don't know backend then you can contribute on its frontend part as well from here.
+If you don't like or don't know frontend then you can contribute on its backend part as well from [here](https://github.com/Harshchourasiya/Resume_backend).
 
 ## Special Thanks for Contributors
 
