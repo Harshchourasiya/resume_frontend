@@ -1,26 +1,28 @@
-# Animre - *An*alyze , *im*prove , *re*peat
+# Resume Builder - Instant + Professional 📄
+This website will help you to create your resume instantly with AI suggestions. AI will help you to know what is the best place or word to use in your resume. You can create your resume in 5 Minutes and Download it on PDF, DOC, ... PNG formates. 
 
-***An***alyze , ***Im***prove , ***Re***peat in short - **Animre** is a website that will help you to **Analyze your resume** and helps you to **improve** according to the response that you are getting from the **recruiter that are visiting your resume.**
-
-### Table of Contents 📄
+### Table of Contents 📝
 
 - [Project Details](https://github.com/Harshchourasiya/resume_frontend#project-details)
 - [Techonologies](https://github.com/Harshchourasiya/resume_frontend#technologies)
 - [Setup](https://github.com/Harshchourasiya/resume_frontend#setup)
-- [Don't Like FrontEnd?](https://github.com/Harshchourasiya/resume_frontend#dont-like-frontend)
-- [Special Thanks for Contributors](https://github.com/Harshchourasiya/resume_frontend#special-thanks-for-contributors)
+- [Contributors](https://github.com/Harshchourasiya/resume_frontend#contributors)
 
 ## Project Details 📔
 
-The website can solve the issue that mostly Freshers for IT sector struggle like many peoples share there resume online but don't get any response. So This website help the User to analyze the resume through recruiter behaviour and improve accordingly.
-If you have time you should also read the story of the user (offcourse Future user) How this website will help them. This story will Help you to deeply understand this website's goal. It's a small story [here](Story.md).
+This website will help to create resumes instantly with AI suggestion like AI will let the user know that what is the correct work to use or What Hard or soft skills you should mention based on your position. It will be really helpful for freshers and Students.
 
-If you don't have time, Following the main features of the website:-
+### Developing Proccess:
 
-- User can create 5 Resumes and Edit them anytime.
-- User can Add Access Restriction.
-- User can Analyze Every Resume.
-- and Many more...
+### Phase 1 :
+     Everything starts with small so this project is also starts with Resume builder. 
+     In this phase We just create a Resume Builder that can instanly create the resume for the user and user can download it.
+     Wireframes :
+     
+https://user-images.githubusercontent.com/48551992/192144929-ba5fd71e-58b1-44dd-b61e-350d65731a87.mp4
+
+### Phase 2:
+     In this Phase will be integrate AI system. Details will be added soon
 
 ## Technologies 📝
 
@@ -29,19 +31,24 @@ If you don't have time, Following the main features of the website:-
 
 ## Setup 👨‍💻 👩‍💻
 
-1. You first need to setup backend before you start working on frontend *(I know it is a bit annoying but I will try to publish backend test API on server soon but right now You have to setup backend on your System).* You can see the How to setup backend from [here](https://github.com/Harshchourasiya/Resume_backend#setup).
-2. You need to Clone this project in your System with ```git clone https://github.com/Harshchourasiya/resume_frontend.git```.
-3. Enter ```cd resume_frontend``` command.
-4. Enter ```npm start``` command.
-5. Website start running in ```localhost:3000```.
+1. Enter ```git clone https://github.com/Harshchourasiya/resume_frontend.git``` command to clone this project.
+2. Enter ```cd resume_frontend``` command to enter the resume_frontend folder.
+3. Enter ```npm install``` command to install dependencies.
+4. Enter ```npm start``` command to start running the project.
+5. Congratulations, Open ```localhost:3000``` on browser (Well It will open automatically 😅).
 
+## Contributors 
 
-## Don't Like FrontEnd 😑
+1. Open Issue tab and Pick a issue that you want to solve.
+2. Comment that you want to work on that issue.
+3. Issue will be assign to you.
 
-If you don't like or don't know frontend then you can contribute on its backend part as well from [here](https://github.com/Harshchourasiya/Resume_backend).
+**OR**
 
-## Special Thanks for Contributors ❤️
+1. Find issue and create issue in the issue section.
+2. Comment that you are working on this issue.
+3. Start working.
 
-If you contribute on this project then you get a tag on this website wheneven someone visit your resume on this website. They are able to see the tag that's shows that you help us in creating this website. It's not a big deal but it's the least we can do for our contributor. I again encourage you to read this [story](Story.md) if you have time.
+***Give a Star If you like it ⭐***
 
 ***If you face any problem or want to give any suggestion Please Raise a Issue.***
