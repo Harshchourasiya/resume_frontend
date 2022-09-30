@@ -1,12 +1,10 @@
 import "./css/App.css";
 import AppBar from "../Components/NavBar/NavBar";
 import { Container, Stack } from "@mui/system";
-import { Avatar, Button, Paper, Typography } from "@mui/material";
+import { Avatar, Button, Paper, Typography, Link } from "@mui/material";
 const App = () => {
   return (
-    <Stack spacing={5}
-    alignItems="center"
-    >
+    <Stack spacing={5} alignItems="center">
       <AppBar />
       <Container sx={{ margin: 0 }}>
         <Stack
@@ -16,10 +14,16 @@ const App = () => {
           spacing={8}
         >
           <Container>
-          <Typography variant="h2">Create Professional Resume</Typography>
-          <Typography variant="h7" sx={{display:'block', padding:1}}>Prepare for Real Interview</Typography>
+            <Typography variant="h2">Create Professional Resume</Typography>
+            <Typography variant="h7" sx={{ display: "block", padding: 1 }}>
+              Prepare for Real Interview
+            </Typography>
 
-          <Button variant="outlined" sx={{py:1, my: 2, width:200, }}>Try Now</Button>
+            <Link href='/collector' underline="hover">
+              <Button variant="outlined" sx={{ py: 1, my: 2, width: 200 }}>
+                Try Now
+              </Button>
+            </Link>
           </Container>
           <Avatar
             variant={"rounded"}
@@ -29,32 +33,37 @@ const App = () => {
         </Stack>
       </Container>
 
-      <Container >
-        <Stack direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={8}>
-          <Paper sx={{padding:2}}>
+      <Container>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={8}
+        >
+          <Paper sx={{ padding: 2 }}>
             <Typography>
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
+              Non ipsum deserunt minim ipsum non non quis proident est dolore
+              enim. Non ipsum deserunt minim ipsum non non quis proident est
+              dolore enim. Non ipsum deserunt minim ipsum non non quis proident
+              est dolore enim.
             </Typography>
           </Paper>
 
-          <Paper sx={{padding:2}}>
+          <Paper sx={{ padding: 2 }}>
             <Typography>
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
+              Non ipsum deserunt minim ipsum non non quis proident est dolore
+              enim. Non ipsum deserunt minim ipsum non non quis proident est
+              dolore enim. Non ipsum deserunt minim ipsum non non quis proident
+              est dolore enim.
             </Typography>
           </Paper>
 
-          <Paper sx={{padding:2}}>
+          <Paper sx={{ padding: 2 }}>
             <Typography>
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
-              Non ipsum deserunt minim ipsum non non quis proident est dolore enim.
+              Non ipsum deserunt minim ipsum non non quis proident est dolore
+              enim. Non ipsum deserunt minim ipsum non non quis proident est
+              dolore enim. Non ipsum deserunt minim ipsum non non quis proident
+              est dolore enim.
             </Typography>
           </Paper>
         </Stack>
