@@ -8,6 +8,10 @@ import theme from "./Theme/Theme";
 import Collector from "./Collector/Collector";
 import { Provider } from "react-redux";
 import {store} from "./store";
+
+//! TEMP (WILL BE REMOVED SOON) 
+import Simple from './ResumeTemplates/Simple';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -17,6 +21,8 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/collector" element={<Collector />} />
+          {/* //! WILL BE REMOVED SOON */}
+          <Route path="/simple" element={<Simple />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
