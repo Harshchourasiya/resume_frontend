@@ -4,8 +4,8 @@ import { addSkill, removeSkill } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
 const AddSkill = (props) => {
-    const data = props.skills; 
-    const [skill, setSkill] = useState(data[props.idx]);
+    const data = props.skills.length === 0 ? "" : props.skills[props.idx]; 
+    const [skill, setSkill] = useState(data);
 
     const setSkillData = (event) => {
       setSkill(event.target.value);

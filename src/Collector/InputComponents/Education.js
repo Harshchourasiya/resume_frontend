@@ -4,10 +4,10 @@ import { addEducation, removeEducation } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_EDUCATION } from "../../helper/InitialState";
+
 const AddEducation = (props) => {
-    const data = props.educations; 
-    const [education, setEducation] = useState(data[props.idx]);
-    console.log(props);
+    const data = props.educations.length === 0 ? EMPTY_EDUCATION : props.educations[props.idx]; 
+    const [education, setEducation] = useState(data);
     const setCollegeName = (event)=> {
         setEducation({
           ...education,

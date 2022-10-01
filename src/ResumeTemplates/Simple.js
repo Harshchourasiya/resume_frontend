@@ -13,6 +13,7 @@ import Skill from "./SkillsComponents/Simple";
 import {connect} from 'react-redux'
 
 const Simple = (props) => {
+  console.log(props);
   return (
     <Box sx={{backgroundColor: '#D3D3D3', padding: 5}}>
     <Paper sx={{margin : 'auto',padding: 5, width:'794px', height: '1123px'}}>

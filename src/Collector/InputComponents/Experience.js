@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_EXPERIENCE } from "../../helper/InitialState";
 const AddExperience = (props) => {
-    const data = props.experiences; 
-    const [experience, setExperience] = useState(data[props.idx]);
+    const data = props.experiences.length === 0 ? EMPTY_EXPERIENCE : props.experiences[props.idx]; 
+    const [experience, setExperience] = useState(data);
 
     const setCompanyName = (event)=> {
         setExperience({

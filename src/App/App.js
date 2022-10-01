@@ -2,6 +2,7 @@ import "./css/App.css";
 import AppBar from "../Components/NavBar/NavBar";
 import { Container, Stack } from "@mui/system";
 import { Avatar, Button, Paper, Typography, Link } from "@mui/material";
+import Simple from '../ResumeTemplates/Simple';
 const App = () => {
   return (
     <Stack spacing={5} alignItems="center">
@@ -68,6 +69,8 @@ const App = () => {
           </Paper>
         </Stack>
       </Container>
+
+      <Simple />
     </Stack>
   );
 };

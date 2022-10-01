@@ -31,6 +31,7 @@ const Addable = (props) => {
   const data = getData(props);
   return (
     <Stack>
+      <props.component idx={0}/>
       {data.map((obj, idx) => (
         <props.component idx={idx} />
       ))}

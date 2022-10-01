@@ -29,15 +29,11 @@ const INITIAL_STATE = {
     name : "",
     position : "",
     aboutMe : "",
-    experiences : [
-        EMPTY_EXPERIENCE
-    ],
-    educations : [
-        EMPTY_EDUCATION
-    ],
-    skills : [""],
-    projects :[EMPTY_PROJECT],
-    profiles : [EMPTY_PROFILE]
+    experiences : [],
+    educations : [],
+    skills : [],
+    projects :[],
+    profiles : []
 }
 export {
     INITIAL_STATE,

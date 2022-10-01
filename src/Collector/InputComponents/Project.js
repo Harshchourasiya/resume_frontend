@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_PROJECT } from "../../helper/InitialState";
 const AddProject = (props) => {
-    const data = props.projects; 
-    const [project, setProject] = useState(data[props.idx]);
+    const data = props.projects.length === 0 ? EMPTY_PROJECT : props.projects[props.idx]; 
+    const [project, setProject] = useState(data);
 
     const setName = (event)=> {
         setProject({

@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_PROFILE } from "../../helper/InitialState";
 const AddProfile = (props) => {
-    const data = props.profiles; 
-    const [profile, setProfile] = useState(data[props.idx]);
+    const data = props.profiles.length === 0 ? EMPTY_PROFILE : props.profiles[props.idx]; 
+    const [profile, setProfile] = useState(data);
 
     const setName = (event)=> {
         setProfile({

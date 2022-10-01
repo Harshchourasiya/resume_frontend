@@ -6,6 +6,7 @@ import {
   Stack,
   Slide,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
 import Addable from "./InputComponents/Addable";
@@ -21,15 +22,6 @@ import {
   PROJECT,
   PROFILE,
 } from "../helper/Strings";
-const _Button = ({ txt, onClick, isDisable }) => {
-  return (
-    <Box>
-      <Button variant="outlined" onClick={onClick} disabled={isDisable}>
-        {txt}
-      </Button>
-    </Box>
-  );
-};
 
 const data = [
   {
@@ -72,7 +64,7 @@ const Collector = () => {
   const [idx, setIDX] = useState(0);
   const [direction, setDirection] = useState("right");
   const [check, setCheck] = useState(true);
-
+  const navigate = useNavigate();
   const goBack = () => {
     setCheck(false);
     setDirection("left");
@@ -116,12 +108,19 @@ const Collector = () => {
         </Slide>
 
         <Stack container direction="row" justifyContent="space-between">
-          <_Button onClick={goBack} txt="Back" isDisable={idx === 0} />
-          <_Button
-            onClick={goForward}
-            txt="Next"
-            isDisable={idx === data.length - 1}
-          />
+          <Box>
+            <Button variant="outlined" onClick={goBack} disabled={idx === 0}>
+              Back
+            </Button>
+          </Box>
+          {
+            idx === data.length - 1 ? <Button onClick={() => navigate("/simple")}>Finish</Button> :
+              <Box>
+                <Button variant="outlined" onClick={goForward}>
+                  Next
+                </Button>
+              </Box>
+          }
         </Stack>
       </Stack>
     </Container>
