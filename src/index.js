@@ -9,6 +9,7 @@ import Collector from "./Collector/Collector";
 import { Provider } from "react-redux";
 import {store} from "./store";
 import Simple from './ResumeTemplates/Simple';
+import ChooseTemplate from "./ChooseTemplate/ChooseTemplate";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,6 +21,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/collector" element={<Collector />} />
           <Route path="/simple" element={<Simple />} />
+          <Route path="/choose" element={<ChooseTemplate/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -114,7 +114,7 @@ const Collector = () => {
             </Button>
           </Box>
           {
-            idx === data.length - 1 ? <Button onClick={() => navigate("/simple")}>Finish</Button> :
+            idx === data.length - 1 ? <Button onClick={() => navigate("/choose")}>Finish</Button> :
               <Box>
                 <Button variant="outlined" onClick={goForward}>
                   Next
