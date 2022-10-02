@@ -18,6 +18,9 @@ const EDUCATION = "Education";
 const PROJECT = "Project";
 const PROFILE = "Profile";
 
+
+const SIMPLE_ID = "simple";
+
 export {
     ADD_NAME,
     ADD_TITLE,
@@ -36,5 +39,7 @@ export {
     PROJECT,
     ADD_PROFILE,
     REMOVE_PROFILE,
-    PROFILE
+    PROFILE, 
+    
+    SIMPLE_ID
 }

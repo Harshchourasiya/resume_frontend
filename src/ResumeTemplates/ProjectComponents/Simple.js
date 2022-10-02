@@ -15,7 +15,7 @@ const Project = ({projects}) => {
                 <Typography>Visit</Typography>
               </Link>
             </Stack>
-            <Typography variant="p">{obj.details}</Typography>
+            <Typography variant="p">{obj.detail}</Typography>
           </Paper>
         ))}
       </Stack>

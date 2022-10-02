@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import {store} from "./store";
 import Simple from './ResumeTemplates/Simple';
 import ChooseTemplate from "./ChooseTemplate/ChooseTemplate";
+import DownloadResume from "./DownloadResume/DownloadResume";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,8 +21,8 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/collector" element={<Collector />} />
-          <Route path="/simple" element={<Simple />} />
           <Route path="/choose" element={<ChooseTemplate/>}/>
+          <Route path="/download/:id" element={<DownloadResume/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

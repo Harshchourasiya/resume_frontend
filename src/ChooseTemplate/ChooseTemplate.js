@@ -1,12 +1,14 @@
 import { Avatar, Container, Grid, Paper, Typography, Button, Stack, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { SIMPLE_ID } from "../helper/Strings";
+
 const FOLDER_LOCATION = "/static/TemplateIMG";
 const templates = [
     {
+        id: SIMPLE_ID,
         name: "Simple Resume",
         imageLocation: FOLDER_LOCATION + "/simple.png",
-        link: "/simple"
     },
 ];
 
@@ -30,7 +32,7 @@ const ChooseTemplate = () => {
                         <Grid item>
                             <Button sx={{width : '150px',transition: 'width .2s ease .2s',":hover" :{
                                 width: '200px'
-                            }}} onClick={()=> navigate(obj.link)}>
+                            }}} onClick={()=> navigate("/download/"+obj.id)}>
                             <Paper sx={{width: 'auto', height: 'auto'}}>
                                 <Avatar variant="rounded" src={obj.imageLocation} sx={{width: 'auto', height: 'auto'}}/>
                                 <Typography variant="h7" align="center">{obj.name}</Typography>
