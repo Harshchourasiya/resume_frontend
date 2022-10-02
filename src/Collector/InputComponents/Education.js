@@ -6,8 +6,10 @@ import { useState} from "react";
 import { EMPTY_EDUCATION } from "../../helper/InitialState";
 
 const AddEducation = (props) => {
-    const data = props.educations.length === 0 ? EMPTY_EDUCATION : props.educations[props.idx]; 
+    const isNotEmpty = (props.idx!==-1);
+    const data = isNotEmpty ? props.educations[props.idx] : EMPTY_EDUCATION; 
     const [education, setEducation] = useState(data);
+
     const setCollegeName = (event)=> {
         setEducation({
           ...education,
@@ -56,38 +58,38 @@ const AddEducation = (props) => {
           onChange={setCollegeName}
           label="College Or School Name"
           value={education.collegeName}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setMajor}
           label="Enter Your Major"
           value={education.major}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setCGPA}
           label="Enter your CGPA"
           value={education.CGPA}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
           multiline
         />
         <TextField
           onChange={setStartingDate}
           label="Starting Date"
           value={education.starting}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
 
         <TextField
           onChange={setEndingDate}
           label="Ending Date"
           value={education.ending}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
       </Stack>
       
       {
-        props.idx > 0 ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
     </Container>
   );

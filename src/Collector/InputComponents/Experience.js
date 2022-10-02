@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_EXPERIENCE } from "../../helper/InitialState";
 const AddExperience = (props) => {
-    const data = props.experiences.length === 0 ? EMPTY_EXPERIENCE : props.experiences[props.idx]; 
+    const isNotEmpty = (props.idx!==-1);
+    const data = isNotEmpty ? props.experiences[props.idx] : EMPTY_EXPERIENCE; 
     const [experience, setExperience] = useState(data);
-
     const setCompanyName = (event)=> {
         setExperience({
           ...experience,
@@ -56,38 +56,38 @@ const AddExperience = (props) => {
           onChange={setCompanyName}
           label="Company Name"
           value={experience.companyName}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setPosition}
           label="Enter Your Position"
           value={experience.position}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setDuties}
           label="Enter your Duties"
           value={experience.duties}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
           multiline
         />
         <TextField
           onChange={setStartingDate}
           label="Starting Date"
           value={experience.starting}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
 
         <TextField
           onChange={setEndingDate}
           label="Ending Date"
           value={experience.ending}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
       </Stack>
       
       {
-        props.idx > 0 ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
     </Container>
   );

@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import { useState} from "react";
 import { EMPTY_PROJECT } from "../../helper/InitialState";
 const AddProject = (props) => {
-    const data = props.projects.length === 0 ? EMPTY_PROJECT : props.projects[props.idx]; 
+  const isNotEmpty = (props.idx!==-1);
+  const data = isNotEmpty ? props.projects[props.idx] : EMPTY_PROJECT; 
     const [project, setProject] = useState(data);
 
     const setName = (event)=> {
@@ -42,26 +43,26 @@ const AddProject = (props) => {
           onChange={setName}
           label="Project Name"
           value={project.name}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setDetail}
           label="Enter Detail"
           value={project.detail}
           multiline
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
         <TextField
           onChange={setLink}
           label="Enter Link"
           value={project.link}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
           multiline
         />
       </Stack>
       
       {
-        props.idx > 0 ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
     </Container>
   );

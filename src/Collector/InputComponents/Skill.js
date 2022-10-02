@@ -4,7 +4,8 @@ import { addSkill, removeSkill } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
 const AddSkill = (props) => {
-    const data = props.skills.length === 0 ? "" : props.skills[props.idx]; 
+  const isNotEmpty = (props.idx!==-1);
+    const data = isNotEmpty ? props.skills[props.idx] : ""; 
     const [skill, setSkill] = useState(data);
 
     const setSkillData = (event) => {
@@ -25,10 +26,10 @@ const AddSkill = (props) => {
           onChange={setSkillData}
           label="Enter Skill"
           value={skill}
-          disabled={props.idx!==0}
+          disabled={isNotEmpty}
         />
       {
-        props.idx > 0 ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
     </Container>
   );
