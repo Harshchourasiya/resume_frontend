@@ -1,16 +1,14 @@
-import { Container, Paper, Typography } from "@mui/material";
 import {Divide} from '../Helper/Design';
-
+import {View, Text} from '@react-pdf/renderer';
+import Style from '../Helper/Style';
 const About = ({detail}) => {
   return (
-    <Container>
+    <View style={Style.view}>
       <Divide title="Objective" />
-      <Paper sx={{ padding: 2 }}>
-        <Typography variant="p">
+        <Text style={Style.subText}>
           {detail}
-        </Typography>
-      </Paper>
-    </Container>
+        </Text>
+    </View>
   );
 };
 

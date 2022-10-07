@@ -2,6 +2,7 @@ import {
   Stack,
   Box,
   Paper,
+  Container,
 } from "@mui/material";
 import Experience from "./ExperienceComponents/Simple";
 import Project from "./ProjectComponents/Simple";
@@ -10,45 +11,32 @@ import Profile from './ProfileComponents/Simple';
 import About from './AboutComponents/Simple';
 import Education from "./EducationComponents/Simple";
 import Skill from "./SkillsComponents/Simple";
-import {connect} from 'react-redux'
+import { Document, Page} from "@react-pdf/renderer";
+import { tempProfiles, tempExperience, tempEducation, tempSkills, tempProjects, tempData } from "./Helper/TempData";
 
-const Simple = (props) => {
+
+const Simple = ({data}) => {
+  data = data == null ? tempData : data;
   return (
-    <Box sx={{padding: 5}}>
-    <Paper sx={{margin : 'auto',padding: 5, width:'794px', height: '1123px'}}>
-      <Stack container spacing={2} >
-        {/* //? Name and Title */}
+    <Document>
+    <Page style={{display:'flex', justifyContent:'flex-start'}}>
+      <Name name={data.name} title={data.position}/>
 
-        <Name name={props.name} title={props.title}/>
+      <Profile profiles={data.profiles}/>
 
-        {/* //? Profiles  */}
+      <About detail={"Amet ipsum ad voluptate cupidatat quis. Tempor minim anim pariatur quis est. Non fugiat velit laboris ad velit sunt ipsum consequat sit velit.Do quis enim proident id ullamco ut amet reprehenderit enim proident exercitation sit. Sunt deserunt ex tempor exercitation pariatur est commodo. Qui consequat elit excepteur voluptate. Tempor laborum minim excepteur aute eu consectetur minim dolore eiusmod dolor deserunt nostrud. Tempor est aliquip eu cillum non mollit dolor qui esse officia non adipisicing in."} />
 
-        <Profile profiles={props.profiles}/>
+      <Experience experiences={data.experiences}/>
 
-        {/* //? About you */}
-        <About detail={props.aboutMe}/>
+      <Education educations={data.educations} />
 
-        {/* //? Experience */}
+      <Skill skills={data.skills} />
 
-        <Experience experiences={props.experiences}/>
-
-        {/* //? Education */}
-
-        <Education educations={props.educations}/>
-
-        {/* //? Skills  */}
-
-        <Skill skills={props.skills}/>
-
-        {/* //? Projects  */}
-        <Project projects={props.projects}/>
-      </Stack>
-    </Paper>
-    </Box>
+      <Project projects={data.projects}/>
+    </Page>
+  </Document>
   );
 };
-const mapStateToProps = (state) => ({
-  ...state,
-});
 
-export default connect(mapStateToProps)(Simple);
+
+export default Simple;

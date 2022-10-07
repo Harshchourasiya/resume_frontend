@@ -1,26 +1,19 @@
 import { Divide } from "../Helper/Design";
-import { Paper, Grid, Link, Container } from "@mui/material";
-
+import { View, Text, Link } from "@react-pdf/renderer";
+import Style from '../Helper/Style'
 const Profile = ({ profiles }) => {
   return (
-    <Container>
-      <Divide title="Contact me" />
-      <Paper sx={{ padding: 2 }}>
-        <Grid
-          container
-          rowSpacing={1}
-          columnSpacing={2}
-          justifyContent="space-evenly"
-          alignItems="center"
-        >
-          {profiles.map((obj) => (
-            <Grid item>
-              <Link href={obj.link}>{obj.name}</Link>
-            </Grid>
-          ))}
-        </Grid>
-      </Paper>
-    </Container>
+    <View style={Style.view}>
+      <Divide title={"Contact Me"}/>
+      <View style={Style.rowView}>
+        {
+          profiles.map((obj) => (
+            <Link src={obj.link}><Text style={Style.subText}>
+              {obj.name}</Text></Link>
+          ))
+        }
+      </View>
+    </View>
   );
 };
 

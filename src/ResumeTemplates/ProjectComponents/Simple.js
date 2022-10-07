@@ -1,25 +1,35 @@
-
-import { Container, Stack, Paper, Typography, Link } from "@mui/material"
 import {Divide} from '../Helper/Design';
+import { View, Text, Link } from '@react-pdf/renderer';
+import Style from '../Helper/Style';
+
+const PRO = ({data}) => {
+  return (
+    <View style={Style.flexColumn}>
+      <View style={Style.flexRowInBetween}>
+        <Text style={Style.mainText}>{data.name}</Text>
+        <Link src={data.link}><Text style={Style.subText}>View</Text></Link>
+      </View>
+
+      <Text style={Style.subText}>
+        {data.details}
+      </Text>
+
+    </View>
+
+  );
+}
 
 const Project = ({projects}) => {
   return (
-    <Container>
+    <View style={Style.view}>
       <Divide title="Projects" />
-      <Stack container spacing={2}>
-        {projects.map((obj) => (
-          <Paper sx={{ padding: 1 }}>
-            <Stack direction="row" justifyContent="space-between">
-              <Typography variant="h5">{obj.name}</Typography>
-              <Link href={obj.link}>
-                <Typography>Visit</Typography>
-              </Link>
-            </Stack>
-            <Typography variant="p">{obj.detail}</Typography>
-          </Paper>
-        ))}
-      </Stack>
-    </Container>
+      
+      {
+        projects.map((obj) => (
+          <PRO data={obj} />
+        ))
+      }
+    </View>
   );
 };
 

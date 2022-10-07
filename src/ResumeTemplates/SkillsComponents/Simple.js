@@ -1,26 +1,21 @@
-import { Container, Grid, Paper, Typography } from "@mui/material"
 import {Divide} from '../Helper/Design';
+import { View, Text } from '@react-pdf/renderer';
+import Style from '../Helper/Style';
 
 const Skill = ({skills}) => {
   return (
-    <Container>
+    <View style={Style.view}>
       <Divide title="Skills" />
-      <Grid
-        container
-        rowSpacing={1}
-        columnSpacing={2}
-        justifyContent="center"
-        alignItems="center"
-      >
-        {skills.map((obj) => (
-          <Grid item>
-            <Paper sx={{ padding: 1 }}>
-              <Typography>{obj}</Typography>
-            </Paper>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+      
+      <View style={Style.rowView}>
+        {
+          skills.map((obj)=> (
+            <Text style={Style.skill}>{obj}</Text>
+          ))
+        }
+      </View>
+
+    </View>
   );
 };
 

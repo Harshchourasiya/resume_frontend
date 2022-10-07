@@ -1,36 +1,39 @@
-import { Container, Stack, Paper, Typography } from "@mui/material"
 import {Divide} from '../Helper/Design';
+import { View, Text } from '@react-pdf/renderer';
+import Style from '../Helper/Style';
 
+const EXP = ({data}) => {
+  return (
+  <View style={{...Style.flexColumn, padding: '10px'}}>
+    <View style={Style.flexRowInBetween}>
+      <View style={Style.flexRowInBetween}>
+        <Text style={Style.mainText}>{data.companyName}</Text>
+        <Text> - </Text>
+        <Text style={Style.mainText}>{data.position}</Text>
+      </View>
+
+      <View style={Style.flexRowInBetween}>
+        <Text style={Style.mainText}>{data.starting}</Text>
+        <Text> - </Text>
+        <Text style={Style.mainText}>{data.ending}</Text>
+      </View>
+    </View>
+    <Text style={Style.subText}>{data.duties}</Text>
+  </View>
+  );
+}
 
 const Experience = ({experiences})=> {
     return (
-        <Container>
+        <View style={Style.view}>
             <Divide title="Experience" />
-        <Stack container spacing={2}>
-          {experiences.map((obj) => (
-            <Paper sx={{padding:1}}>
-              <Stack direction="row" justifyContent="space-between">
-                <Stack direction="row">
-                  <Typography>{obj.companyName} </Typography>
-                  <Typography marginX={1} >
-                    -
-                  </Typography>
-                  <Typography>{obj.position}</Typography>
-                </Stack>
 
-                <Stack direction="row">
-                  <Typography>{obj.starting}</Typography>
-                  <Typography marginX={1} >
-                    -
-                  </Typography>
-                  <Typography>{obj.ending}</Typography>
-                </Stack>
-              </Stack>
-              <Typography variant="p">{obj.duties}</Typography>
-            </Paper>
-          ))}
-        </Stack>
-        </Container>
+            {
+              experiences.map((obj)=> (
+                <EXP data={obj}/>
+              ))
+            }
+        </View>
     )
 }
 
