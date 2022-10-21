@@ -1,9 +1,3 @@
-import {
-  Stack,
-  Box,
-  Paper,
-  Container,
-} from "@mui/material";
 import Experience from "./ExperienceComponents/Simple";
 import Project from "./ProjectComponents/Simple";
 import Name from './NameComponents/Simple';
@@ -12,11 +6,11 @@ import About from './AboutComponents/Simple';
 import Education from "./EducationComponents/Simple";
 import Skill from "./SkillsComponents/Simple";
 import { Document, Page} from "@react-pdf/renderer";
-import { tempProfiles, tempExperience, tempEducation, tempSkills, tempProjects, tempData } from "./Helper/TempData";
+import {tempData } from "./Helper/TempData";
 
 
 const Simple = ({data}) => {
-  data = data == null ? tempData : data;
+  data = data.name.length === 0 ? tempData : data;
   return (
     <Document>
     <Page style={{display:'flex', justifyContent:'flex-start'}}>

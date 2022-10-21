@@ -20,7 +20,6 @@ const DownloadResume = (props) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const ResumeTemplate = getResumeTemplate(id, props);
-    console.log(props);
     const downloadResume = () => {
         // Download the Resume
     }
@@ -29,7 +28,7 @@ const DownloadResume = (props) => {
     return (
         <Container>
             <Stack direction="row" justifyContent={"space-between"}>
-                <IconButton onClick={() => navigate('/choose')} >
+                <IconButton onClick={() => navigate(-1)} >
                     <ArrowBackIcon />
                 </IconButton>
             </Stack>
@@ -40,7 +39,7 @@ const DownloadResume = (props) => {
                 alignItems="center"
                 minHeight="100vh"
             >
-                <PDFViewer width={'794px'} height={'1500px'} >
+                <PDFViewer width={800} height={800}>
                     {
                         ResumeTemplate
                     }
