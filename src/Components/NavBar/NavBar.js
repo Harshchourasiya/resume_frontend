@@ -1,14 +1,32 @@
 import * as React from 'react';
-import { Avatar, Stack, Typography, Link, useTheme, Box, ListItem, List, ListItemButton, ListItemIcon, ListItemText, Divider, Drawer, IconButton, Container } from "@mui/material";
+import { Avatar, Stack, Typography, Link, useTheme, Box, ListItem, List, ListItemButton, ListItemIcon, ListItemText, Divider, Drawer, IconButton, Container, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from '@mui/icons-material/Menu';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import { useState } from "react";
+import HomeDialog from '../Dialogs/HomeDialog';
+
+
+const menu = [
+  {
+    name: "Github",
+    url: "#",
+    icon: <GitHubIcon />
+  },
+  {
+    name: "Issue",
+    url: "#",
+    icon: <BugReportIcon />
+  }
+];
+
+
 const NavBar = () => {
   const theme = useTheme();
+  const secondaryMainColor = theme.palette.secondary.main;
   const [isOpen, setOpen] = useState();
-
+  const [isOpenLoginDialog, setOpenLoginDialog] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -18,6 +36,15 @@ const NavBar = () => {
     setOpen(open);
   };
 
+  const openLoginDialog = () => {
+    setOpenLoginDialog(true);
+  };
+
+  const closeLoginDialog = () => {
+    setOpenLoginDialog(false);
+  };
+
+
   const Name = () => {
     return (
       <Stack spacing={2} direction="row" alignItems="center">
@@ -26,24 +53,12 @@ const NavBar = () => {
           src="https://cdn.pixabay.com/photo/2014/04/02/10/16/fire-303309_1280.png"
         />
         <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
-          <strong style={{ color: theme.palette.secondary.main }}>Resume </strong>
+          <strong style={{ color: secondaryMainColor }}>Resume </strong>
           Builder
         </Typography>
       </Stack>
     );
   }
-  const menu = [
-    {
-      name: "Github",
-      url: "#",
-      icon: <GitHubIcon />
-    },
-    {
-      name: "Issue",
-      url: "#",
-      icon: <BugReportIcon />
-    }
-  ];
 
   const Menu = () => (
     <Box
@@ -73,8 +88,6 @@ const NavBar = () => {
     </Box>
   );
 
-
-
   return (
     <AppBar position="static" sx={{ padding: 1 }}>
       <Stack
@@ -90,9 +103,14 @@ const NavBar = () => {
           alignItems="center"
           justifyContent="space-between"
         >
+          <Button variant='outlined' sx={{
+            color: '#FFF', backgroundColor: secondaryMainColor, '&:hover': {
+              borderColor: secondaryMainColor
+            }
+          }} onClick={() => setOpenLoginDialog(true)}>Login</Button>
           <React.Fragment>
             <IconButton onClick={toggleDrawer(true)}>
-              <MenuIcon sx={{ color: theme.palette.secondary.main, fontSize: 35 }} />
+              <MenuIcon sx={{ color: secondaryMainColor, fontSize: 35 }} />
             </IconButton>
             <Drawer
               anchor="right"
@@ -104,6 +122,7 @@ const NavBar = () => {
           </React.Fragment>
         </Stack>
       </Stack>
+      <HomeDialog open={isOpenLoginDialog} onClose={closeLoginDialog} isLogin={true} />
     </AppBar>
   );
 };

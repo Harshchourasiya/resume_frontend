@@ -23,6 +23,11 @@ const SIMPLE_ID = "simple";
 const MATRIX_ID = "matrix"
 const DARK_RED_SIMPLE_ID = "darkredsimple";
 const DARK_RED_MATRIX_ID = "darkredmatrix"
+
+
+const SUCCESS = "Success";
+const FAILED = "Failed";
+
 export {
     ADD_NAME,
     ADD_TITLE,
@@ -46,5 +51,10 @@ export {
     SIMPLE_ID,
     MATRIX_ID,
     DARK_RED_SIMPLE_ID,
-    DARK_RED_MATRIX_ID
+    DARK_RED_MATRIX_ID,
+
+
+
+    SUCCESS,
+    FAILED
 }
