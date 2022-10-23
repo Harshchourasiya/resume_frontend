@@ -1,10 +1,10 @@
 import { View, Text } from '@react-pdf/renderer';
 import Style from '../Helper/Style';
 
-const Name = ({ name, title }) => {
+const Name = ({ name, title, style }) => {
   return (
-    <View style={Style.view}>
-      <Text style={Style.mainText}>{name}</Text>
+    <View style={{...Style.view, ...style}}>
+      <Text style={{...Style.mainText, fontSize: '30px'}}>{name}</Text>
       <Text style={Style.subText}>{title}</Text>
     </View>
   );

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Stack } from "@mui/material";
+import { Box,Stack } from "@mui/material";
 import {
   EDUCATION,
   EXPERIENCE,
@@ -30,12 +30,18 @@ const getData = (props) => {
 const Addable = (props) => {
   const data = getData(props);
   return (
-    <Stack>
+    <Box sx={{width: '100%', margin: 'auto'}}>
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}>
       <props.component idx={-1} />
       {data.map((obj, idx) => (
         <props.component idx={idx} />
       ))}
     </Stack>
+    </Box>
   );
 };
 

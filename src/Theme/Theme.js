@@ -8,15 +8,14 @@ let theme = createTheme({
       },
       secondary: {
         main: '#e44747',
-        light: '##e44747',
-        dark: '##e44747',
+        light: '#e44747',
+        dark: '#e44747',
       },
       text: {
         primary: '#233143',
         secondary: '#132e83',
         disabled: '#001D6E',
       },
-      divider: '#000',
     },
     typography: {
       fontFamily: 'Lora',

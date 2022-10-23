@@ -1,5 +1,5 @@
 import { Button, Stack, TextField } from "@mui/material";
-import { Container } from "@mui/system";
+import {Box} from "@mui/system";
 import { addProject, removeProject } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
@@ -37,8 +37,8 @@ const AddProject = (props) => {
       props.removeProject(props.idx);
     }
   return (
-    <Container>
-      <Stack spacing={2} sx={{ width: "50%", height: "20%" }}>
+    <Box sx={{margin: 'auto', width: '100%'}}>
+      <Stack spacing={2}>
         <TextField
           onChange={setName}
           label="Project Name"
@@ -64,7 +64,7 @@ const AddProject = (props) => {
       {
         isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
-    </Container>
+    </Box>
   );
 };
 

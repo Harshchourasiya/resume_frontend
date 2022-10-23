@@ -1,45 +1,54 @@
-import { Container, Stack, Typography, IconButton, Button, Box } from "@mui/material";
+import { Container, Stack, IconButton, Box, Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useParams, useNavigate } from "react-router-dom";
-import { SIMPLE_ID } from "../helper/Strings";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../helper/Strings";
 import Simple from "../ResumeTemplates/Simple";
+import Matrix from "../ResumeTemplates/Matrix";
 import { PDFViewer } from "@react-pdf/renderer";
 import { connect } from 'react-redux'
+
+const BLACK = "#000";
+const DARK_RED = "#e44747";
 
 const getResumeTemplate = (id, props) => {
     switch (id) {
         case SIMPLE_ID:
-            return <Simple data={props} />;
+            return <Simple data={props} color={BLACK}/>;
+        case MATRIX_ID:
+            return <Matrix data={props} color={BLACK}/>
+        case DARK_RED_MATRIX_ID:
+            return <Matrix data={props} color={DARK_RED}/>
+        case DARK_RED_SIMPLE_ID:
+            return <Simple data={props} color={DARK_RED}/>;
         default:
-            return <Simple data={props} />;
+            return <Simple data={props} color={BLACK}/>;
     }
 }
 
 const DownloadResume = (props) => {
 
-    const { id } = useParams();
+    const { id} = useParams();
     const navigate = useNavigate();
     const ResumeTemplate = getResumeTemplate(id, props);
-    const downloadResume = () => {
-        // Download the Resume
-    }
-
-
+    const search = useLocation().search;
+    const name = new URLSearchParams(search).get('name');
     return (
         <Container>
-            <Stack direction="row" justifyContent={"space-between"}>
+            <Stack direction="row" justifyContent={"flex-start"}>
                 <IconButton onClick={() => navigate(-1)} >
                     <ArrowBackIcon />
                 </IconButton>
+                <Typography variant="h3" mx={10} my={2}>{name}</Typography>
             </Stack>
 
             <Box
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                minHeight="100vh"
+                width= '100%'
+                height='900px'
             >
-                <PDFViewer width={800} height={800}>
+                <PDFViewer width={'100%'} height={'100%'}>
                     {
                         ResumeTemplate
                     }

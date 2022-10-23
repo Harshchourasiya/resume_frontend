@@ -7,12 +7,14 @@ const Style = StyleSheet.create({
         'padding': '5px',
     },
     mainText: {
-        fontSize: '20px',
+        fontSize: '22px',
+        fontFamily: 'Times-Roman'
     },
 
     subText: {
-        fontSize: '10px',
-        padding: '5px'
+        fontSize: '13px',
+        paddingVertical: '3px',
+        paddingHorizontal: '5px'
     },
 
     rowView: {
@@ -29,12 +31,20 @@ const Style = StyleSheet.create({
         display: 'flex', flexDirection: 'column'
     },
 
-    skill: {
+    skillText: {
         border: '1px solid #000',
-        padding: '10px',
-        margin: '5px'
-    }
+        fontSize: '10px',
+        fontFamily: 'Courier',
+        padding: '5px',
+        marginVertical: '3px',
+        marginHorizontal: '5px',
+        borderRadius: '5px'
+    },
 
+    dateText : {
+        fontFamily: "Courier-Bold",
+        fontSize: "15px"
+    }
 })
 
 export default Style;

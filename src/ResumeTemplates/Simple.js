@@ -9,7 +9,7 @@ import { Document, Page} from "@react-pdf/renderer";
 import {tempData } from "./Helper/TempData";
 
 
-const Simple = ({data}) => {
+const Simple = ({data, color}) => {
   data = data.name.length === 0 ? tempData : data;
   return (
     <Document>
@@ -18,15 +18,15 @@ const Simple = ({data}) => {
 
       <Profile profiles={data.profiles}/>
 
-      <About detail={"Amet ipsum ad voluptate cupidatat quis. Tempor minim anim pariatur quis est. Non fugiat velit laboris ad velit sunt ipsum consequat sit velit.Do quis enim proident id ullamco ut amet reprehenderit enim proident exercitation sit. Sunt deserunt ex tempor exercitation pariatur est commodo. Qui consequat elit excepteur voluptate. Tempor laborum minim excepteur aute eu consectetur minim dolore eiusmod dolor deserunt nostrud. Tempor est aliquip eu cillum non mollit dolor qui esse officia non adipisicing in."} />
+      <About detail={data.aboutMe} color={color} />
 
-      <Experience experiences={data.experiences}/>
+      <Experience experiences={data.experiences} color={color}/>
 
-      <Education educations={data.educations} />
+      <Education educations={data.educations} color={color} />
 
-      <Skill skills={data.skills} />
+      <Skill skills={data.skills} color={color}/>
 
-      <Project projects={data.projects}/>
+      <Project projects={data.projects} color={color}/>
     </Page>
   </Document>
   );

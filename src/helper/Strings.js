@@ -20,7 +20,9 @@ const PROFILE = "Profile";
 
 
 const SIMPLE_ID = "simple";
-
+const MATRIX_ID = "matrix"
+const DARK_RED_SIMPLE_ID = "darkredsimple";
+const DARK_RED_MATRIX_ID = "darkredmatrix"
 export {
     ADD_NAME,
     ADD_TITLE,
@@ -41,5 +43,8 @@ export {
     REMOVE_PROFILE,
     PROFILE, 
     
-    SIMPLE_ID
+    SIMPLE_ID,
+    MATRIX_ID,
+    DARK_RED_SIMPLE_ID,
+    DARK_RED_MATRIX_ID
 }

@@ -1,19 +1,15 @@
-import { Divide } from "../Helper/Design";
 import { View, Text, Link } from "@react-pdf/renderer";
 import Style from '../Helper/Style'
-const Profile = ({ profiles }) => {
+const Profile = ({ profiles, style }) => {
   return (
-    <View style={Style.view}>
-      <Divide title={"Contact Me"}/>
-      <View style={Style.rowView}>
+      <View style={{...Style.rowView, justifyContent: 'flex-start', paddingHorizontal: '10px', paddingVertical: '0px', ...style}}>
         {
           profiles.map((obj) => (
-            <Link src={obj.link}><Text style={Style.subText}>
+            <Link src={obj.link}><Text style={{...Style.subText, paddingHorizontal: '5px'}}>
               {obj.name}</Text></Link>
           ))
         }
       </View>
-    </View>
   );
 };
 

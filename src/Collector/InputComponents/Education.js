@@ -1,5 +1,5 @@
 import { Button, Stack, TextField } from "@mui/material";
-import { Container } from "@mui/system";
+import { Box } from "@mui/system";
 import { addEducation, removeEducation } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
@@ -52,8 +52,8 @@ const AddEducation = (props) => {
       props.removeEducation(props.idx);
     }
   return (
-    <Container>
-      <Stack spacing={2} sx={{ width: "50%", height: "20%" }}>
+    <Box sx={{margin: 'auto', width: '100%'}}>
+      <Stack spacing={2}>
         <TextField
           onChange={setCollegeName}
           label="College Or School Name"
@@ -91,7 +91,7 @@ const AddEducation = (props) => {
       {
         isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
-    </Container>
+    </Box>
   );
 };
 

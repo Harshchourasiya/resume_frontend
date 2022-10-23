@@ -1,5 +1,5 @@
-import { Button, TextField } from "@mui/material";
-import { Container } from "@mui/system";
+import { Button, TextField , Stack } from "@mui/material";
+import { Box} from "@mui/system";
 import { addSkill, removeSkill } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState} from "react";
@@ -21,7 +21,8 @@ const AddSkill = (props) => {
       props.removeSkill(props.idx);
     }
   return (
-    <Container>
+    <Box sx={{margin: 'auto', width: '70%'}}>
+      <Stack spacing={2}>
         <TextField
           onChange={setSkillData}
           label="Enter Skill"
@@ -31,7 +32,8 @@ const AddSkill = (props) => {
       {
         isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
       }
-    </Container>
+      </Stack>
+    </Box>
   );
 };
 

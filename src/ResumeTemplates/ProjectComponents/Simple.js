@@ -6,12 +6,12 @@ const PRO = ({data}) => {
   return (
     <View style={Style.flexColumn}>
       <View style={Style.flexRowInBetween}>
-        <Text style={Style.mainText}>{data.name}</Text>
+        <Text style={{...Style.mainText, fontSize: '18px'}}>{data.name}</Text>
         <Link src={data.link}><Text style={Style.subText}>View</Text></Link>
       </View>
 
       <Text style={Style.subText}>
-        {data.details}
+        {data.detail}
       </Text>
 
     </View>
@@ -19,11 +19,11 @@ const PRO = ({data}) => {
   );
 }
 
-const Project = ({projects}) => {
+const Project = ({projects, color}) => {
   return (
     <View style={Style.view}>
-      <Divide title="Projects" />
-      
+      <Divide title="Projects" color={color} />
+      <View style={{height: '10px'}}/>
       {
         projects.map((obj) => (
           <PRO data={obj} />

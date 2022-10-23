@@ -1,22 +1,22 @@
+import Style from './Style';
 import {View, Text} from '@react-pdf/renderer'
-const Divide = ({ title }) => {
+const Divide = ({ title, color }) => {
   return (
     <View style={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly',
+      display: 'flex', flexDirection: 'row', justifyContent: 'flex-start',
       alignContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     }}>
-      <View style={{ width: '30px', height: '1px', backgroundColor: '#000' }} />
-      <Text style={{ fontSize: '20px', marginHorizontal:'10px' }}>
+      <View style={{ height: '1px', backgroundColor: color, width: '10px' }} />
+      <Text style={{...Style.mainText,flexGrow: 0, marginHorizontal: '5px'}}>
         {title}
       </Text>
-      <View style={{ width: '400px', height: '1px', backgroundColor: '#000' }} />
+      <View style={{ height: '1px', backgroundColor: color, flexGrow: 8 }} />
 
       </View>
   );
 };
 
-
 export {
-    Divide
+    Divide,
 }

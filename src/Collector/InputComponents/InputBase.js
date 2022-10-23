@@ -23,12 +23,6 @@ const getAddMethod = (props) => {
         val: props.aboutMe,
         add: props.addAboutMe,
       };
-
-    case "Experience" :
-      return {
-        val : props.exp,
-        add : props.addExperience
-      } 
     default:
       return null;
   }

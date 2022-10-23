@@ -4,7 +4,7 @@ import {
   Typography,
   Button,
   Stack,
-  Slide,
+  Zoom
 } from "@mui/material";
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
@@ -15,6 +15,16 @@ import AddEducation from "./InputComponents/Education";
 import AddSkill from "./InputComponents/Skill";
 import AddProject from "./InputComponents/Project";
 import AddProfile from "./InputComponents/Profile";
+import Name from './LottieJSON/Name.json';
+import Title from './LottieJSON/Title.json';
+import AboutMe from './LottieJSON/AboutMe.json';
+import Experience from './LottieJSON/Experience.json';
+import Education from './LottieJSON/Education.json';
+import Profile from './LottieJSON/Profile.json';
+import Skills from './LottieJSON/Skills.json';
+import Project from './LottieJSON/Project.json';
+import Lottie from 'react-lottie';
+import Typewriter from 'typewriter-effect';
 import {
   EXPERIENCE,
   EDUCATION,
@@ -23,67 +33,106 @@ import {
   PROFILE,
 } from "../helper/Strings";
 
-const data = [
+const inputs = [
   {
-    title: "Enter Your Name",
+    title: "Name",
     component: <NameInput />,
+    json: Name
   },
   {
-    title: "Enter Your Title",
+    title: "Title",
     component: <TitleInput />,
+    json: Title
   },
   {
-    title: "Enter About Yourself",
+    title: "Objective",
     component: <AboutMeInput />,
+    json: AboutMe
   },
 
   {
-    title: "Enter Your Experiences",
+    title: "Experiences",
     component: <Addable component={AddExperience} type={EXPERIENCE} />,
+    json: Experience
   },
 
   {
-    title: "Enter Your Education",
+    title: "Education",
     component: <Addable component={AddEducation} type={EDUCATION} />,
+    json: Education
   },
   {
-    title: "Enter Your Skills",
+    title: "Skills",
     component: <Addable component={AddSkill} type={SKILL} />,
+    json: Skills
   },
   {
-    title: "Enter Your Projects",
+    title: "Projects",
     component: <Addable component={AddProject} type={PROJECT} />,
+    json: Project
   },
   {
-    title: "Enter Your Profiles",
+    title: "Profiles",
     component: <Addable component={AddProfile} type={PROFILE} />,
+    json: Profile
   },
 ];
 
+const renderComponent = (idx) => {
+  return (
+    <Stack
+      container
+      direction="column"
+      justifyContent="space-between"
+      spacing={2}
+    >
+      <Lottie
+        options={{ animationData: inputs[idx].json, loop: false }}
+        height={100}
+        width={100}
+      />
+      <Stack direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+        <Typography variant="h3">
+          Enter Your
+        </Typography>
+        <Typography variant="h3" sx={{ color: '#e44747' }}>
+          <Typewriter
+            options={{
+              strings: inputs[idx].title,
+              autoStart: true,
+              loop: false,
+            }}
+          />
+        </Typography>
+      </Stack>
+      {inputs[idx].component}
+    </Stack >
+  )
+}
+
 const Collector = () => {
-  const [idx, setIDX] = useState(0);
-  const [direction, setDirection] = useState("right");
+  const [idx, setIdx] = useState(0);
   const [check, setCheck] = useState(true);
   const navigate = useNavigate();
+
+
   const goBack = () => {
     setCheck(false);
-    setDirection("left");
     setTimeout(() => {
+      setIdx(idx - 1);
       setCheck(true);
-      setDirection("right");
-    }, 300);
-
-    setIDX(idx - 1);
+    }, 400);
   };
+
   const goForward = () => {
     setCheck(false);
-    setDirection("right");
     setTimeout(() => {
+      setIdx(idx + 1);
       setCheck(true);
-      setDirection("left");
-    }, 300);
-
-    setIDX(idx + 1);
+    }, 400);
   };
   return (
     <Container>
@@ -91,21 +140,11 @@ const Collector = () => {
         container
         direction="column"
         justifyContent="space-between"
-        spacing={10}
+        spacing={5}
       >
-        <Slide direction={direction} in={check}>
-          <Stack
-            container
-            direction="column"
-            justifyContent="space-between"
-            spacing={10}
-          >
-            <Typography variant="h3" align="center">
-              {data[idx].title}
-            </Typography>
-            {data[idx].component}
-          </Stack>
-        </Slide>
+        <Zoom in={check}>
+          {renderComponent(idx)}
+        </Zoom>
 
         <Stack container direction="row" justifyContent="space-between">
           <Box>
@@ -114,7 +153,7 @@ const Collector = () => {
             </Button>
           </Box>
           {
-            idx === data.length - 1 ? <Button onClick={() => navigate("/choose")}>Finish</Button> :
+            idx === inputs.length - 1 ? <Button onClick={() => navigate("/choose")}>Finish</Button> :
               <Box>
                 <Button variant="outlined" onClick={goForward}>
                   Next

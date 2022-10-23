@@ -7,11 +7,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./Theme/Theme";
 import Collector from "./Collector/Collector";
 import { Provider } from "react-redux";
-import {store} from "./store";
-import Simple from './ResumeTemplates/Simple';
+import { store } from "./store";
 import ChooseTemplate from "./ChooseTemplate/ChooseTemplate";
 import DownloadResume from "./DownloadResume/DownloadResume";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -21,8 +19,8 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/collector" element={<Collector />} />
-          <Route path="/choose" element={<ChooseTemplate/>}/>
-          <Route path="/download/:id" element={<DownloadResume/>}/>
+          <Route path="/choose" element={<ChooseTemplate />} />
+          <Route path="/download/:id" element={<DownloadResume />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

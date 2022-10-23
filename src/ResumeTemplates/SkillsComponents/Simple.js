@@ -2,15 +2,14 @@ import {Divide} from '../Helper/Design';
 import { View, Text } from '@react-pdf/renderer';
 import Style from '../Helper/Style';
 
-const Skill = ({skills}) => {
+const Skill = ({skills, color}) => {
   return (
     <View style={Style.view}>
-      <Divide title="Skills" />
-      
-      <View style={Style.rowView}>
+      <Divide title="Skills" color={color}/>
+      <View style={{...Style.rowView, justifyContent: 'flex-start'}}>
         {
           skills.map((obj)=> (
-            <Text style={Style.skill}>{obj}</Text>
+            <Text style={{...Style.skillText, borderColor: color}}>{obj}</Text>
           ))
         }
       </View>
