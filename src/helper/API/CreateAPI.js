@@ -1,13 +1,11 @@
-const API = process.env.REACT_APP_API_URL;
-const API_USER = API + "user/";
+import {API_USER,HEADER} from '../Strings';
+
 
 const sendOTP = async (data, setData) => {
   await fetch(API_USER + "new", {
     method: "POST",
     body: JSON.stringify(data),
-    headers: {
-      "Content-type": "application/json",
-    },
+    headers: HEADER,
   }).then((res) => {
     res
       .json()
@@ -28,9 +26,7 @@ const verifyOTP = async(data, setRes) => {
     await fetch(API_USER + "otpverification", {
         method: "POST",
         body: JSON.stringify(data),
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: HEADER,
       }).then((res) => {
         res
           .json()

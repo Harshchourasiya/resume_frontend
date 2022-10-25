@@ -1,4 +1,4 @@
-import { Button, Stack, Alert, Snackbar } from "@mui/material";
+import { Button, Stack, Alert, Snackbar, FormControlLabel, Checkbox } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
@@ -11,10 +11,11 @@ import { isRequestSuccess } from "../../../helper/Validator";
 
 const LoginDialog = () => {
   const navigate = useNavigate()
+  const [rememberMe, setRememberMe] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
-    isRemember: true,
+    isRemember: rememberMe,
     status: ""
   });
   const [openLoginError, setOpenLoginError] = useState(false);
@@ -35,7 +36,7 @@ const LoginDialog = () => {
   const storeStatus = (status) => {
     setData({ ...data, status: status });
   }
-  
+
   const handleClose = () => {
     setOpenLoginError(false);
   }
@@ -43,7 +44,7 @@ const LoginDialog = () => {
   useEffect(() => {
     if (isRequestSuccess(data.status)) {
       navigate("/profile");
-    } else if(isLoginClicked) {
+    } else if (isLoginClicked) {
       setOpenLoginError(true);
     }
   }, [data]);
@@ -52,6 +53,10 @@ const LoginDialog = () => {
     <Stack spacing={2}>
       <EmailInputField store={storeEmail} />
       <PasswordInputField store={storePassword} />
+      <FormControlLabel control={<Checkbox onChange={() => {
+        setRememberMe(!rememberMe);
+        setData({ ...data, isRemember: rememberMe });
+      }} />} label="Remember me" />
       <Button onClick={onLoginClick}>Login</Button>
       <Snackbar open={openLoginError} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>

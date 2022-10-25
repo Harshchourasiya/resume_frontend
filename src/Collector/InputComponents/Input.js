@@ -1,23 +1,23 @@
 
 import InputBase from "./InputBase";
 
-const NameInput = ()=> {
+const NameInput = () => {
     return (
-        <InputBase label="Name" type="AddName"/>
+        <InputBase label="Name" type="AddName" />
     );
 }
 
-const TitleInput = ()=> {
+const TitleInput = () => {
 
     return (
-        <InputBase label="Title" type="AddTitle"/>
+        <InputBase label="Title" type="AddTitle" />
     );
 }
 
-const AboutMeInput = ()=> {
+const AboutMeInput = () => {
 
     return (
-        <InputBase label="About You" type="AddAboutMe" isMultiline={true}/>
+        <InputBase label="About You" type="AddAboutMe" isMultiline={true} />
     );
 }
 

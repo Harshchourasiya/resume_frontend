@@ -5,7 +5,7 @@ import {
   DialogTitle,
   Button,
   Stack,
-  Alert, 
+  Alert,
   Snackbar
 } from "@mui/material";
 import { useState } from "react";
@@ -23,7 +23,7 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
   const [responeMessage, setResponeMessage] = useState();
   const [responeStatus, setResponeStatus] = useState();
 
-  const create= {
+  const create = {
     title: "Create Account",
     detail: "Do ex duis irure mollit exercitation.",
     isCreate: !isLogin,
@@ -34,15 +34,15 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
   };
 
   const openCreateAccountDialog = () => {
-    setLogin({...login, isLogin: false});
+    setLogin({ ...login, isLogin: false });
   };
   const openLoginDialog = () => {
-    setLogin({...login, isLogin: true});
+    setLogin({ ...login, isLogin: true });
   };
 
   const isAccountCreated = (isCreated) => {
     if (isCreated) {
-      setLogin({...login, isLogin: true});
+      setLogin({ ...login, isLogin: true });
       setResponeMessage("Account is Created!");
       setResponeStatus("success");
     }
@@ -61,7 +61,7 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
         {login.isLogin ? login.detail : create.detail}
       </DialogContentText>
       <DialogContent>
-        {login.isLogin ? <LoginDialog /> : <CreateAccountDialog  isAccountCreated={isAccountCreated} />}
+        {login.isLogin ? <LoginDialog /> : <CreateAccountDialog isAccountCreated={isAccountCreated} />}
         <Stack>
           {login.isLogin ? (
             <Button onClick={openCreateAccountDialog}>Create Account</Button>
@@ -71,13 +71,13 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
 
           <Button onClick={handleClose}>Close</Button>
         </Stack>
-        <Snackbar open={toastOpen} autoHideDuration={6000} onClose={()=> setToastOpen(false)}>
-        <Alert onClose={()=> setToastOpen(false)} severity={responeStatus} sx={{ width: '100%' }}>
-          {
-            responeMessage
-          }
-        </Alert>
-      </Snackbar>
+        <Snackbar open={toastOpen} autoHideDuration={6000} onClose={() => setToastOpen(false)}>
+          <Alert onClose={() => setToastOpen(false)} severity={responeStatus} sx={{ width: '100%' }}>
+            {
+              responeMessage
+            }
+          </Alert>
+        </Snackbar>
       </DialogContent>
     </Dialog>
   );

@@ -4,8 +4,8 @@ const Profile = ({ profiles, style }) => {
   return (
       <View style={{...Style.rowView, justifyContent: 'flex-start', paddingHorizontal: '10px', paddingVertical: '0px', ...style}}>
         {
-          profiles.map((obj) => (
-            <Link src={obj.link}><Text style={{...Style.subText, paddingHorizontal: '5px'}}>
+          profiles.map((obj, idx) => (
+            <Link src={obj.link} key={idx}><Text style={{...Style.subText, paddingHorizontal: '5px'}}>
               {obj.name}</Text></Link>
           ))
         }

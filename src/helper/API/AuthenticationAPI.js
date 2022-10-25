@@ -1,14 +1,12 @@
-import { SUCCESS } from "../Strings";
+import {API, API_USER, HEADER} from '../Strings';
 
-const API = process.env.REACT_APP_API_URL;
-const API_USER =  API + "user/";
 const authenticateUser = async(data, storeStatus) => {
     await fetch(API_USER + "login", {
         method: "POST",
         body: JSON.stringify(data),
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: HEADER,
+        credentials: 'include',
+        origin: true
       }).then((res) => {
         res
           .json()
@@ -21,6 +19,16 @@ const authenticateUser = async(data, storeStatus) => {
       });
 }
 
+const isUserLogedIn = (isRedirect) => {
+  fetch(API, {
+    method: 'GET',
+    credentials: 'include'
+  }).then((res)=> {
+    if (res.status===200) isRedirect(true);
+  })
+}
+
 export {
-    authenticateUser
+    authenticateUser,
+    isUserLogedIn
 }

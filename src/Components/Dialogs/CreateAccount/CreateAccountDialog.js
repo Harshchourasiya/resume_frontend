@@ -6,51 +6,51 @@ import {
 } from "../../InputField";
 import { useEffect, useState } from "react";
 import OTPDialog from "./OTPDialog/OTPDialog";
-import {sendOTP} from "../../../helper/API/CreateAPI"
-import {isRequestSuccess} from "../../../helper/Validator"
+import { sendOTP } from "../../../helper/API/CreateAPI"
+import { isRequestSuccess } from "../../../helper/Validator"
 
-const CreateAccountDialog = ({isAccountCreated}) => {
+const CreateAccountDialog = ({ isAccountCreated }) => {
 
   const [verifyOTP, setVerifyOTP] = useState(false);
   const [sendData, setSendData] = useState({
-    email : "",
-    password : "",
-    name : "",
-    verificationCode : "",
+    email: "",
+    password: "",
+    name: "",
+    verificationCode: "",
     otpCode: "", // Only For Testing 
-    status : "Failed"
+    status: "Failed"
   })
 
-  const onVerifyClick = async() => {
+  const onVerifyClick = async () => {
     await sendOTP(sendData, setSendData);
   };
-  
+
   const storeEmail = (email) => {
-    setSendData({...sendData, email : email});
+    setSendData({ ...sendData, email: email });
   }
-  
+
   const storePassword = (password) => {
-    setSendData({...sendData, password : password});
-    
+    setSendData({ ...sendData, password: password });
+
   }
-  
+
   const storeName = (name) => {
-    setSendData({...sendData, name : name});
+    setSendData({ ...sendData, name: name });
   }
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     if (isRequestSuccess(sendData.status)) setVerifyOTP(true);
   }, [sendData])
 
   return (
     <div>
       {verifyOTP ? (
-        <OTPDialog data={sendData} isAccountCreated={isAccountCreated}/>
+        <OTPDialog data={sendData} isAccountCreated={isAccountCreated} />
       ) : (
         <Stack spacing={2}>
-          <NameInputField store={storeName}/>
-          <EmailInputField store={storeEmail}/>
-          <PasswordInputField store={storePassword}/>
+          <NameInputField store={storeName} />
+          <EmailInputField store={storeEmail} />
+          <PasswordInputField store={storePassword} />
           <Button onClick={onVerifyClick}>Send OTP</Button>
         </Stack>
       )}

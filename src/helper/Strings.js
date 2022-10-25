@@ -11,6 +11,7 @@ const ADD_PROJECT = "addProject";
 const REMOVE_PROJECT = "removeProject";
 const ADD_PROFILE = "addProfile";
 const REMOVE_PROFILE = "removeProfile";
+const SET_ALL_DATA = "setalldata";
 
 const SKILL = "Skill";
 const EXPERIENCE = "Experience";
@@ -27,6 +28,20 @@ const DARK_RED_MATRIX_ID = "darkredmatrix"
 
 const SUCCESS = "Success";
 const FAILED = "Failed";
+
+
+const API = process.env.REACT_APP_API_URL;
+const API_USER = API + "user/";
+const API_USER_RESUME = API_USER + "resume/";
+
+
+const CREATE_ID = "KANSBXJ3J1JBCS";
+
+
+const HEADER = {
+    "Content-type": "application/json",
+    "Accept": "application/json",
+}
 
 export {
     ADD_NAME,
@@ -46,15 +61,24 @@ export {
     PROJECT,
     ADD_PROFILE,
     REMOVE_PROFILE,
-    PROFILE, 
-    
+    PROFILE,
+    SET_ALL_DATA,
+
     SIMPLE_ID,
     MATRIX_ID,
     DARK_RED_SIMPLE_ID,
     DARK_RED_MATRIX_ID,
 
-
-
     SUCCESS,
-    FAILED
+    FAILED,
+
+
+    API,
+    API_USER,
+    API_USER_RESUME,
+
+    CREATE_ID,
+
+
+    HEADER
 }

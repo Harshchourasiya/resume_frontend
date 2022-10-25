@@ -3,27 +3,35 @@ import { Avatar, Stack, Typography, Link, useTheme, Box, ListItem, List, ListIte
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from '@mui/icons-material/Menu';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import HomeIcon from '@mui/icons-material/Home';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import { useState } from "react";
 import HomeDialog from '../Dialogs/HomeDialog';
+import { useNavigate } from 'react-router-dom';
+import { LOGO_URL } from '../../helper/URLs';
 
 
 const menu = [
   {
+    name: "Home",
+    url : "/",
+    icon: <HomeIcon/>
+  },
+  {
     name: "Github",
-    url: "#",
+    url: "https://github.com/Harshchourasiya/resume_frontend",
     icon: <GitHubIcon />
   },
   {
     name: "Issue",
-    url: "#",
+    url: "https://github.com/Harshchourasiya/resume_frontend/issues",
     icon: <BugReportIcon />
   }
 ];
 
-
-const NavBar = () => {
+const NavBar = ({ isUserLogin }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const secondaryMainColor = theme.palette.secondary.main;
   const [isOpen, setOpen] = useState();
   const [isOpenLoginDialog, setOpenLoginDialog] = useState(false);
@@ -32,12 +40,7 @@ const NavBar = () => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setOpen(open);
-  };
-
-  const openLoginDialog = () => {
-    setOpenLoginDialog(true);
   };
 
   const closeLoginDialog = () => {
@@ -50,7 +53,7 @@ const NavBar = () => {
       <Stack spacing={2} direction="row" alignItems="center">
         <Avatar
           alt="Logo"
-          src="https://cdn.pixabay.com/photo/2014/04/02/10/16/fire-303309_1280.png"
+          src={LOGO_URL}
         />
         <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
           <strong style={{ color: secondaryMainColor }}>Resume </strong>
@@ -97,17 +100,23 @@ const NavBar = () => {
         justifyContent="space-between"
       >
         <Name />
+        
         <Stack
           spacing={3}
           direction="row"
           alignItems="center"
           justifyContent="space-between"
         >
+
           <Button variant='outlined' sx={{
             color: '#FFF', backgroundColor: secondaryMainColor, '&:hover': {
               borderColor: secondaryMainColor
             }
-          }} onClick={() => setOpenLoginDialog(true)}>Login</Button>
+          }} onClick={() => {
+            if (isUserLogin) navigate('/profile')
+            else setOpenLoginDialog(true)
+          }}>{isUserLogin ? "Profile" : "Login"}</Button>
+
           <React.Fragment>
             <IconButton onClick={toggleDrawer(true)}>
               <MenuIcon sx={{ color: secondaryMainColor, fontSize: 35 }} />
@@ -120,9 +129,12 @@ const NavBar = () => {
               {Menu()}
             </Drawer>
           </React.Fragment>
+
         </Stack>
       </Stack>
+
       <HomeDialog open={isOpenLoginDialog} onClose={closeLoginDialog} isLogin={true} />
+
     </AppBar>
   );
 };

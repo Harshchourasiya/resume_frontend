@@ -11,11 +11,13 @@ import {
   ADD_PROJECT,
   REMOVE_PROJECT,
   ADD_PROFILE,
-  REMOVE_PROFILE
+  REMOVE_PROFILE,
+  SET_ALL_DATA
 } from "../../helper/Strings";
 
 import { INITIAL_STATE } from "../../helper/InitialState";
-
+import {getFrontEndProjectFromBackend, getFrontEndProfileFromBackend, getFrontEndExperienceFromBackend,
+  getFrontEndEducationFromBackend} from '../../helper/UtilityMethods';
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_NAME:
@@ -97,6 +99,23 @@ const reducer = (state = INITIAL_STATE, action) => {
           (val) => val !== state.profiles[action.idx]
         ),
       };
+    case SET_ALL_DATA:
+      action = action.data;
+      const education = getFrontEndEducationFromBackend(action.Educations);
+      const experience = getFrontEndExperienceFromBackend(action.Experiences);
+      const projects = getFrontEndProjectFromBackend(action.Projects);
+      const profiles = getFrontEndProfileFromBackend(action.Profiles);
+      const res = {
+        name : action.Name,
+        title: action.Position,
+        aboutMe : action.AboutMe,
+        educations: education,
+        experiences : experience,
+        projects : projects,
+        profiles : profiles,
+        skills : action.Skills
+      };
+      return res;
     default:
       return state;
   }

@@ -14,7 +14,7 @@ const errorData = {
   showPassword: false,
 };
 
-const NameInputField = ({store}) => {
+const NameInputField = ({ store }) => {
   const [state, setState] = useState({ ...errorData, label: "Name" });
   const onTextEnter = (event) => {
     const value = event.target.value;
@@ -26,7 +26,7 @@ const NameInputField = ({store}) => {
       });
     else {
       store(value);
-      setState({ ...state, isError: false, helperText: "" }); 
+      setState({ ...state, isError: false, helperText: "" });
     }
   };
 
@@ -51,7 +51,7 @@ const NameInputField = ({store}) => {
   );
 };
 
-const PasswordInputField = ({store}) => {
+const PasswordInputField = ({ store }) => {
   const [state, setState] = useState({ ...errorData, label: "Password" });
   const onTextEnter = (event) => {
     const value = event.target.value;
