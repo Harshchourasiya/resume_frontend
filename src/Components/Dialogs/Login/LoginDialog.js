@@ -9,7 +9,7 @@ import {
 import { authenticateUser } from "../../../helper/API/AuthenticationAPI";
 import { isRequestSuccess } from "../../../helper/Validator";
 
-const LoginDialog = () => {
+const LoginDialog = ({toCloseLoginDialog}) => {
   const navigate = useNavigate()
   const [rememberMe, setRememberMe] = useState(false);
   const [data, setData] = useState({
@@ -44,6 +44,7 @@ const LoginDialog = () => {
   useEffect(() => {
     if (isRequestSuccess(data.status)) {
       navigate("/profile");
+      toCloseLoginDialog();
     } else if (isLoginClicked) {
       setOpenLoginError(true);
     }
