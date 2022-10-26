@@ -82,7 +82,7 @@ const inputs = [
   },
 ];
 
-const renderComponent = (idx) => {
+const renderInputComponent = (idx) => {
   return (
     <Stack
       container
@@ -161,6 +161,12 @@ const Collector = (props) => {
       setCheck(true);
     }, 400);
   };
+
+  const isAllInputValid = () => {
+    return (
+      props.name.length === 0 || props.title.length === 0
+    )
+  }
   return (
     <Container>
       <Stack
@@ -171,7 +177,7 @@ const Collector = (props) => {
       >
         <Zoom in={check}>
           {
-            loading ? <div></div> : renderComponent(idx)
+            loading ? <div></div> : renderInputComponent(idx)
           }
         </Zoom>
 
@@ -182,9 +188,9 @@ const Collector = (props) => {
             </Button>
           </Box>
           {
-            idx === inputs.length - 1 ? <Button onClick={onFinishClick}>Finish</Button> :
+            idx === inputs.length - 1 ? <Button onClick={onFinishClick} disabled={isAllInputValid()}>Finish</Button> :
               <Box>
-                <Button variant="outlined" onClick={goForward}>
+                <Button variant="outlined" onClick={goForward} disabled={props.name.length===0} >
                   Next
                 </Button>
               </Box>
@@ -196,8 +202,11 @@ const Collector = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  ...state,
+});
 const mapDispatchToProps = (dispatch) => ({
   setAllData: (data) => dispatch(setAllData(data)),
 });
 
-export default connect(null, mapDispatchToProps)(Collector);
+export default connect(mapStateToProps, mapDispatchToProps)(Collector);
