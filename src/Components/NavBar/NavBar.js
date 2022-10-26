@@ -9,13 +9,16 @@ import { useState } from "react";
 import HomeDialog from '../Dialogs/HomeDialog';
 import { useNavigate } from 'react-router-dom';
 import { LOGO_URL } from '../../helper/URLs';
-
+import { connect } from "react-redux";
+import { useEffect } from 'react';
+import { isUserLogedIn } from '../../helper/API/AuthenticationAPI';
+import { setIsUser } from '../../Redux/Actions';
 
 const menu = [
   {
     name: "Home",
-    url : "/",
-    icon: <HomeIcon/>
+    url: "/",
+    icon: <HomeIcon />
   },
   {
     name: "Github",
@@ -29,12 +32,17 @@ const menu = [
   }
 ];
 
-const NavBar = ({ isUserLogin }) => {
+const NavBar = (props) => {
   const theme = useTheme();
   const navigate = useNavigate();
   const secondaryMainColor = theme.palette.secondary.main;
   const [isOpen, setOpen] = useState();
   const [isOpenLoginDialog, setOpenLoginDialog] = useState(false);
+
+
+  useEffect(() => {
+    isUserLogedIn(props.setIsUser);
+  }, []);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -100,7 +108,7 @@ const NavBar = ({ isUserLogin }) => {
         justifyContent="space-between"
       >
         <Name />
-        
+
         <Stack
           spacing={3}
           direction="row"
@@ -113,9 +121,9 @@ const NavBar = ({ isUserLogin }) => {
               borderColor: secondaryMainColor
             }
           }} onClick={() => {
-            if (isUserLogin) navigate('/profile')
+            if (props.isUser) navigate('/profile')
             else setOpenLoginDialog(true)
-          }}>{isUserLogin ? "Profile" : "Login"}</Button>
+          }}>{props.isUser ? "Profile" : "Login"}</Button>
 
           <React.Fragment>
             <IconButton onClick={toggleDrawer(true)}>
@@ -139,4 +147,12 @@ const NavBar = ({ isUserLogin }) => {
   );
 };
 
-export default NavBar;
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setIsUser: (isUser) => dispatch(setIsUser(isUser)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

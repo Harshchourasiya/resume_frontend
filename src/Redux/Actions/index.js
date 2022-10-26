@@ -6,7 +6,8 @@ import { ADD_NAME,
     ADD_EDUCATION,
     REMOVE_EDUCATION, 
     ADD_SKILL, REMOVE_SKILL, ADD_PROJECT, REMOVE_PROJECT, REMOVE_PROFILE, ADD_PROFILE,
-    SET_ALL_DATA} from '../../helper/Strings';
+    SET_ALL_DATA,
+    IS_USER} from '../../helper/Strings';
 
 const addName = (name) => {
     return {
@@ -106,6 +107,13 @@ const setAllData = (data)=> {
     }
 }
 
+const setIsUser = (isUser) => {
+    return {
+        type : IS_USER,
+        isUser
+    }
+}
+
 export {
     addName,
     addTitle,
@@ -120,5 +128,6 @@ export {
     removeProject,
     addProfile,
     removeProfile,
-    setAllData
+    setAllData,
+    setIsUser 
 }

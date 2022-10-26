@@ -12,6 +12,7 @@ const REMOVE_PROJECT = "removeProject";
 const ADD_PROFILE = "addProfile";
 const REMOVE_PROFILE = "removeProfile";
 const SET_ALL_DATA = "setalldata";
+const IS_USER = "isuser";
 
 const SKILL = "Skill";
 const EXPERIENCE = "Experience";
@@ -63,6 +64,7 @@ export {
     REMOVE_PROFILE,
     PROFILE,
     SET_ALL_DATA,
+    IS_USER,
 
     SIMPLE_ID,
     MATRIX_ID,

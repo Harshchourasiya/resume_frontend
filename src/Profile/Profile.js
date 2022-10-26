@@ -8,8 +8,10 @@ import Lottie from 'react-lottie';
 import Empty from '../LottieJSON/Empty.json';
 import DescriptionIcon from '@mui/icons-material/Description';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { setIsUser } from "../Redux/Actions";
+import { connect } from "react-redux";
 
-const Resume = ({ resume, navigate, remover }) => {
+const Resume = ({ resume, navigate, remover}) => {
     const [check, setCheck] = useState(true);
     const onDeleteClick = () => {
         deleteResume({ resumeId: resume.ResumeId });
@@ -39,7 +41,7 @@ const Resume = ({ resume, navigate, remover }) => {
 }
 
 
-const Profile = () => {
+const Profile = (props) => {
     const navigate = useNavigate();
     const [data, setData] = useState({
         Name: "",
@@ -61,6 +63,7 @@ const Profile = () => {
 
     const onLogoutClick = () => {
         logoutUser();
+        props.setIsUser(false);
         navigate('../');
     }
 
@@ -108,4 +111,8 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+const mapDispatchToProps = (dispatch) => ({
+    setIsUser: (isUser) => dispatch(setIsUser(isUser)),
+});
+
+export default connect(null, mapDispatchToProps)(Profile);

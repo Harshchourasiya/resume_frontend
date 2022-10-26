@@ -8,8 +8,11 @@ import {
 } from "../../InputField";
 import { authenticateUser } from "../../../helper/API/AuthenticationAPI";
 import { isRequestSuccess } from "../../../helper/Validator";
+import { setIsUser } from "../../../Redux/Actions";
+import { connect } from "react-redux";
 
-const LoginDialog = ({toCloseLoginDialog}) => {
+
+const LoginDialog = ({toCloseLoginDialog, setIsUser}) => {
   const navigate = useNavigate()
   const [rememberMe, setRememberMe] = useState(false);
   const [data, setData] = useState({
@@ -45,6 +48,7 @@ const LoginDialog = ({toCloseLoginDialog}) => {
     if (isRequestSuccess(data.status)) {
       navigate("/profile");
       toCloseLoginDialog();
+      setIsUser(true);
     } else if (isLoginClicked) {
       setOpenLoginError(true);
     }
@@ -68,4 +72,9 @@ const LoginDialog = ({toCloseLoginDialog}) => {
   );
 };
 
-export default LoginDialog;
+
+const mapDispatchToProps = (dispatch) => ({
+  setIsUser: (isUser) => dispatch(setIsUser(isUser)),
+});
+
+export default connect(null, mapDispatchToProps)(LoginDialog);

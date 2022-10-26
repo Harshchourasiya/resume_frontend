@@ -33,7 +33,8 @@ const INITIAL_STATE = {
     educations : [],
     skills : [],
     projects :[],
-    profiles : []
+    profiles : [],
+    isUser : false
 }
 export {
     INITIAL_STATE,

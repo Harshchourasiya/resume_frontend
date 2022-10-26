@@ -12,7 +12,8 @@ import {
   REMOVE_PROJECT,
   ADD_PROFILE,
   REMOVE_PROFILE,
-  SET_ALL_DATA
+  SET_ALL_DATA,
+  IS_USER
 } from "../../helper/Strings";
 
 import { INITIAL_STATE } from "../../helper/InitialState";
@@ -116,6 +117,11 @@ const reducer = (state = INITIAL_STATE, action) => {
         skills : action.Skills
       };
       return res;
+    case IS_USER: 
+      return {
+        ...state,
+        isUser : action.isUser
+      };
     default:
       return state;
   }
