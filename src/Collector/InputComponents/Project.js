@@ -75,6 +75,11 @@ const AddProject = (props) => {
               value={obj.value}
               disabled={isNotEmpty}
               multiline={obj.multiline}
+              inputProps={{
+                style: {
+                  height: obj.multiline && "100px",
+                },
+              }}
               helperText={!isNotEmpty && obj.helperText}
             />
           ))

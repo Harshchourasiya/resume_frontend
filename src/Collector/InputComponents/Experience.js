@@ -104,6 +104,11 @@ const AddExperience = (props) => {
             disabled={isNotEmpty}
             helperText={!isNotEmpty && obj.helperText}
             multiline={obj.multiline}
+            inputProps={{
+              style: {
+                height: obj.multiline && "100px",
+              },
+            }}
           />
           ))
         }

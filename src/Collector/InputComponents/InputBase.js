@@ -47,7 +47,11 @@ const Input = (props) => {
       onChange={onChange}
       multiline
       maxRows={2}
-      sx={{height: '50px'}}
+      inputProps={{
+        style: {
+          height: "200px",
+        },
+      }}
       helperText={"About Me should me more than 200 characters, At most 500 characters"}
     />
   ) : (

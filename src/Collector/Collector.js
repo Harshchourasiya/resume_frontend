@@ -4,6 +4,8 @@ import {
   Typography,
   Button,
   Stack,
+  CircularProgress,
+  Paper,
   Zoom
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom"
@@ -146,21 +148,15 @@ const Collector = (props) => {
     navigate(url);
   }
 
-  const goBack = () => {
+  const move = (value) => {
+    setLoading(true);
     setCheck(false);
     setTimeout(() => {
-      setIdx(idx - 1);
+      setIdx(idx + value);
+      setLoading(false);
       setCheck(true);
-    }, 400);
-  };
-
-  const goForward = () => {
-    setCheck(false);
-    setTimeout(() => {
-      setIdx(idx + 1);
-      setCheck(true);
-    }, 400);
-  };
+    }, 200);
+  }
 
   const isAllInputValid = () => {
     return (
@@ -170,33 +166,47 @@ const Collector = (props) => {
   return (
     <Container>
       <Stack
-        container
         direction="column"
         justifyContent="space-between"
         spacing={5}
       >
-        <Zoom in={check}>
-          {
-            loading ? <div></div> : renderInputComponent(idx)
-          }
-        </Zoom>
 
-        <Stack container direction="row" justifyContent="space-between">
-          <Box>
-            <Button variant="outlined" onClick={goBack} disabled={idx === 0}>
-              Back
-            </Button>
-          </Box>
-          {
-            idx === inputs.length - 1 ? <Button onClick={onFinishClick} disabled={isAllInputValid()}>Finish</Button> :
-              <Box>
-                <Button variant="outlined" onClick={goForward} disabled={props.name.length===0} >
-                  Next
-                </Button>
-              </Box>
-          }
+        {
+          loading ?
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              minHeight="90vh"
+            >
+              <CircularProgress disableShrink sx={{ margin: 'auto' }} />
+            </Box>
+            :
+            <Zoom in={check}>
+              {
+                renderInputComponent(idx)
+              }
+            </Zoom>
+        }
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: '#FFF', zIndex: 1100, }} elevation={3}>
+          <Stack container direction="row" justifyContent="space-around" padding={1}>
+            <Box>
+              <Button variant="outlined" onClick={() => move(-1)} disabled={idx === 0}>
+                Back
+              </Button>
+            </Box>
+            {
+              idx === inputs.length - 1 ? <Button onClick={onFinishClick} disabled={isAllInputValid()}>Finish</Button> :
+                <Box>
+                  <Button variant="outlined" onClick={() => move(1)} disabled={props.name.length === 0} >
+                    Next
+                  </Button>
+                </Box>
+            }
 
-        </Stack>
+          </Stack>
+        </Paper>
+
       </Stack>
     </Container>
   );
