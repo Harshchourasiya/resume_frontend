@@ -8,6 +8,7 @@ const CreateOrSaveResume = async(data, setIsSuccess) => {
         method: "POST",
         body: JSON.stringify(data),
         headers:HEADER,
+        credentials: 'include'
       }).then(res => {
         setIsSuccess(res.status===200);
       }).catch(err=> console.log(err));

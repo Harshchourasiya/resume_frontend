@@ -23,10 +23,12 @@ const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
   });
   const [openLoginError, setOpenLoginError] = useState(false);
   const [isLoginClicked, setIsLoginClicked] = useState(false);
+
   const onLoginClick = async () => {
     setIsLoginClicked(true);
-    await authenticateUser(data, storeStatus);
+    await authenticateUser(data,storeStatus);
   };
+
 
   const storeEmail = (email) => {
     setData({ ...data, email: email });
@@ -47,7 +49,7 @@ const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
   useEffect(() => {
     if (isRequestSuccess(data.status)) {
       navigate("/profile");
-      toCloseLoginDialog();
+      toCloseLoginDialog(); 
       setIsUser(true);
     } else if (isLoginClicked) {
       setOpenLoginError(true);
