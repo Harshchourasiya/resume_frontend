@@ -158,11 +158,6 @@ const Collector = (props) => {
     }, 200);
   }
 
-  const isAllInputValid = () => {
-    return (
-      props.name.length === 0 || props.title.length === 0
-    )
-  }
   return (
     <Container>
       <Stack
@@ -196,7 +191,9 @@ const Collector = (props) => {
               </Button>
             </Box>
             {
-              idx === inputs.length - 1 ? <Button onClick={onFinishClick} disabled={isAllInputValid()}>Finish</Button> :
+              idx === inputs.length - 1 ? <Button onClick={onFinishClick} >
+                Finish
+              </Button> :
                 <Box>
                   <Button variant="outlined" onClick={() => move(1)} disabled={props.name.length === 0} >
                     Next
