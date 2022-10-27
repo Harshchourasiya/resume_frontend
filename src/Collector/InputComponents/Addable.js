@@ -30,7 +30,7 @@ const getData = (props) => {
 const Addable = (props) => {
   const data = getData(props);
   return (
-    <Box sx={{ width: '100%', margin: 'auto' }}>
+    <Box sx={{ width: '100%', margin: 'auto', paddingBottom: '100px' }}>
       <Stack
         direction="column"
         justifyContent="center"

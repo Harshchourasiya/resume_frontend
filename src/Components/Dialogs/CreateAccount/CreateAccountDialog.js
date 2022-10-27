@@ -1,4 +1,4 @@
-import { Button, Stack } from "@mui/material";
+import { Button, CircularProgress, Stack } from "@mui/material";
 import {
   PasswordInputField,
   EmailInputField,
@@ -8,14 +8,15 @@ import { useState } from "react";
 import OTPDialog from "./OTPDialog/OTPDialog";
 import { sendOTP } from "../../../helper/API/CreateAPI"
 import { isRequestSuccess } from "../../../helper/Validator"
-import {isLoginInputValid} from '../../../helper/UtilityMethods';
+import { isLoginInputValid } from '../../../helper/UtilityMethods';
 import { CREATE_ACCOUNT_INITIAL_STATE } from "../../../helper/InitialState";
 
 const CreateAccountDialog = ({ isAccountCreated }) => {
 
   const [sendData, setSendData] = useState(CREATE_ACCOUNT_INITIAL_STATE)
-
+  const [loading, setLoading] = useState(false);
   const onVerifyClick = async () => {
+    setLoading(true);
     await sendOTP(sendData, setSendData);
   };
 
@@ -37,7 +38,7 @@ const CreateAccountDialog = ({ isAccountCreated }) => {
       sendData.name.length !== 0 &&
       isLoginInputValid(sendData.email, sendData.password)
     )
-  } 
+  }
   return (
     <div>
       {isRequestSuccess(sendData.status) ? (
@@ -47,7 +48,11 @@ const CreateAccountDialog = ({ isAccountCreated }) => {
           <NameInputField store={storeName} />
           <EmailInputField store={storeEmail} />
           <PasswordInputField store={storePassword} />
-          <Button onClick={onVerifyClick} disabled={!isValid()}>Send OTP</Button>
+          <Button onClick={onVerifyClick} disabled={!isValid()}>
+            {loading ? <CircularProgress size={14} />
+              : "Send OTP"
+            }
+          </Button>
         </Stack>
       )}
     </div>
