@@ -1,3 +1,7 @@
+
+import {isEmail, isStrongPassword} from './Validator';
+
+
 const setData = (data, props) => {
     data.name = props.name;
     data.position = props.title;
@@ -59,10 +63,19 @@ const getFrontEndProjectFromBackend = (project) => {
     return res;
 }
 
+
+const isLoginInputValid = (email, password)=> {
+    return  (
+        isEmail(email) &&
+        isStrongPassword(password) 
+      );
+}
+
 export {
     setData,
     getFrontEndEducationFromBackend,
     getFrontEndExperienceFromBackend,
     getFrontEndProfileFromBackend,
-    getFrontEndProjectFromBackend
+    getFrontEndProjectFromBackend,
+    isLoginInputValid
 }

@@ -10,7 +10,7 @@ const sendOTP = async (data, setData) => {
     res
       .json()
       .then((resData) => {
-        setData({...data, verificationCode : resData.verificationCode, otpCode : resData.otpCode, status: resData.status});
+        setData({...data, verificationCode : resData.verificationCode, status: resData.status});
       })
       .catch((err) => {
         console.log(err.message);
@@ -18,24 +18,17 @@ const sendOTP = async (data, setData) => {
   }).catch((err) => {
     console.log(err);
   })
-
 };
 
 
 const verifyOTP = async(data, setRes) => {
+  console.log(data);
     await fetch(API_USER + "otpverification", {
         method: "POST",
         body: JSON.stringify(data),
         headers: HEADER,
       }).then((res) => {
-        res
-          .json()
-          .then((resData) => {
-            setRes(resData);
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
+        setRes(res.status===200)
       });
 }
 export { sendOTP, verifyOTP };

@@ -151,7 +151,7 @@ const EmailInputField = ({ store }) => {
   );
 };
 
-const OTPInputField = () => {
+const OTPInputField = ({setOTP}) => {
   const [state, setState] = useState({
     ...errorData,
     label: "OTP",
@@ -165,6 +165,7 @@ const OTPInputField = () => {
         helperText: "Enter Valid OTP",
       });
     else {
+      setOTP(value);
       setState({ ...state, isError: false, helperText: "" });
     }
   };

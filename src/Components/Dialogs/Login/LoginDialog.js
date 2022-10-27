@@ -10,9 +10,9 @@ import { authenticateUser } from "../../../helper/API/AuthenticationAPI";
 import { isRequestSuccess } from "../../../helper/Validator";
 import { setIsUser } from "../../../Redux/Actions";
 import { connect } from "react-redux";
+import { isLoginInputValid } from '../../../helper/UtilityMethods';
 
-
-const LoginDialog = ({toCloseLoginDialog, setIsUser}) => {
+const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
   const navigate = useNavigate()
   const [rememberMe, setRememberMe] = useState(false);
   const [data, setData] = useState({
@@ -62,7 +62,7 @@ const LoginDialog = ({toCloseLoginDialog, setIsUser}) => {
         setRememberMe(!rememberMe);
         setData({ ...data, isRemember: rememberMe });
       }} />} label="Remember me" />
-      <Button onClick={onLoginClick}>Login</Button>
+      <Button onClick={onLoginClick} disabled={!isLoginInputValid(data.email, data.password)}>Login</Button>
       <Snackbar open={openLoginError} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
           Enter Correct Credential

@@ -4,22 +4,16 @@ import {
   EmailInputField,
   NameInputField,
 } from "../../InputField";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import OTPDialog from "./OTPDialog/OTPDialog";
 import { sendOTP } from "../../../helper/API/CreateAPI"
 import { isRequestSuccess } from "../../../helper/Validator"
+import {isLoginInputValid} from '../../../helper/UtilityMethods';
+import { CREATE_ACCOUNT_INITIAL_STATE } from "../../../helper/InitialState";
 
 const CreateAccountDialog = ({ isAccountCreated }) => {
 
-  const [verifyOTP, setVerifyOTP] = useState(false);
-  const [sendData, setSendData] = useState({
-    email: "",
-    password: "",
-    name: "",
-    verificationCode: "",
-    otpCode: "", // Only For Testing 
-    status: "Failed"
-  })
+  const [sendData, setSendData] = useState(CREATE_ACCOUNT_INITIAL_STATE)
 
   const onVerifyClick = async () => {
     await sendOTP(sendData, setSendData);
@@ -38,20 +32,22 @@ const CreateAccountDialog = ({ isAccountCreated }) => {
     setSendData({ ...sendData, name: name });
   }
 
-  useEffect(() => {
-    if (isRequestSuccess(sendData.status)) setVerifyOTP(true);
-  }, [sendData])
-
+  const isValid = () => {
+    return (
+      sendData.name.length !== 0 &&
+      isLoginInputValid(sendData.email, sendData.password)
+    )
+  } 
   return (
     <div>
-      {verifyOTP ? (
-        <OTPDialog data={sendData} isAccountCreated={isAccountCreated} />
+      {isRequestSuccess(sendData.status) ? (
+        <OTPDialog data={sendData} isAccountCreated={isAccountCreated} setData={setSendData} />
       ) : (
         <Stack spacing={2}>
           <NameInputField store={storeName} />
           <EmailInputField store={storeEmail} />
           <PasswordInputField store={storePassword} />
-          <Button onClick={onVerifyClick}>Send OTP</Button>
+          <Button onClick={onVerifyClick} disabled={!isValid()}>Send OTP</Button>
         </Stack>
       )}
     </div>

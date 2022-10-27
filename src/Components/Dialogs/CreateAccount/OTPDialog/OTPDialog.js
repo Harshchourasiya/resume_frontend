@@ -3,23 +3,25 @@ import {
   OTPInputField
 } from "../../../InputField";
 import { verifyOTP } from "../../../../helper/API/CreateAPI"
-import { isRequestSuccess } from "../../../../helper/Validator";
+import { useState } from "react";
 
 
-const OTPDialog = ({ data, isAccountCreated }) => {
+const OTPDialog = ({ data, isAccountCreated, setData }) => {
+  const [otp, setOTP] = useState("");
+  const reqData = {...data, otpCode: otp};
   const onVerifyClick = async () => {
-    await verifyOTP(data, setRes);
+    await verifyOTP(reqData, setRes);
   };
-
+  
   const setRes = (res) => {
-    isAccountCreated(isRequestSuccess(res.status));
+    isAccountCreated(res);
   }
 
   return (
     <Stack spacing={2}>
       <Typography >OTP Sended to {data.email}</Typography>
-      <OTPInputField />
-      <Button onClick={onVerifyClick}>Verify</Button>
+      <OTPInputField setOTP={setOTP} />
+      <Button disabled={otp.length === 0 || otp.length > 6} onClick={onVerifyClick}>Verify</Button>
     </Stack>
   );
 };
