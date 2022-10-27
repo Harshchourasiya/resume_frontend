@@ -47,6 +47,7 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
       setResponeStatus("success");
     }
     else {
+      setLogin({ ...login, isLogin: true });
       setResponeMessage("unable to create Account, try again!");
       setResponeStatus("error");
     }

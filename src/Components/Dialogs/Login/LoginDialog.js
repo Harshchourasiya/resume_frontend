@@ -1,4 +1,4 @@
-import { Button, Stack, Alert, Snackbar, FormControlLabel, Checkbox } from "@mui/material";
+import { Button, Stack, Alert, Snackbar, CircularProgress, FormControlLabel, Checkbox } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
@@ -15,6 +15,7 @@ import { isLoginInputValid } from '../../../helper/UtilityMethods';
 const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
   const navigate = useNavigate()
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -26,7 +27,8 @@ const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
 
   const onLoginClick = async () => {
     setIsLoginClicked(true);
-    await authenticateUser(data,storeStatus);
+    setLoading(true);
+    await authenticateUser(data, storeStatus);
   };
 
 
@@ -49,10 +51,11 @@ const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
   useEffect(() => {
     if (isRequestSuccess(data.status)) {
       navigate("/profile");
-      toCloseLoginDialog(); 
+      toCloseLoginDialog();
       setIsUser(true);
     } else if (isLoginClicked) {
       setOpenLoginError(true);
+      setLoading(false);
     }
   }, [data]);
 
@@ -64,7 +67,11 @@ const LoginDialog = ({ toCloseLoginDialog, setIsUser }) => {
         setRememberMe(!rememberMe);
         setData({ ...data, isRemember: rememberMe });
       }} />} label="Remember me" />
-      <Button onClick={onLoginClick} disabled={!isLoginInputValid(data.email, data.password)}>Login</Button>
+      <Button onClick={onLoginClick} disabled={!isLoginInputValid(data.email, data.password) || loading}>
+        {loading ? <CircularProgress size={14} />
+          : "Login"
+        }
+      </Button>
       <Snackbar open={openLoginError} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
           Enter Correct Credential

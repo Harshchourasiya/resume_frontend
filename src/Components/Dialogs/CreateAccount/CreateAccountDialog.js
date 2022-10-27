@@ -48,7 +48,7 @@ const CreateAccountDialog = ({ isAccountCreated }) => {
           <NameInputField store={storeName} />
           <EmailInputField store={storeEmail} />
           <PasswordInputField store={storePassword} />
-          <Button onClick={onVerifyClick} disabled={!isValid()}>
+          <Button onClick={onVerifyClick} disabled={!isValid() || loading}>
             {loading ? <CircularProgress size={14} />
               : "Send OTP"
             }
