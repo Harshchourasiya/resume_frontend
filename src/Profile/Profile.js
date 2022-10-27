@@ -12,14 +12,11 @@ import { setIsUser } from "../Redux/Actions";
 import { connect } from "react-redux";
 
 const Resume = ({ resume, navigate, remover}) => {
-    const [check, setCheck] = useState(true);
     const onDeleteClick = () => {
         deleteResume({ resumeId: resume.ResumeId });
-        setCheck(false);
-        setInterval(() => remover(resume), 500);
+        remover(resume)
     }
     return (
-        <Zoom in={check}>
             <Paper>
                 <Stack>
                     <Button onClick={() => {
@@ -36,7 +33,6 @@ const Resume = ({ resume, navigate, remover}) => {
                     </Button>
                 </Stack>
             </Paper>
-        </Zoom>
     );
 }
 
