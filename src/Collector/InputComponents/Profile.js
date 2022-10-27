@@ -30,14 +30,21 @@ const AddProfile = (props) => {
   const deleteData = () => {
     props.removeProfile(props.idx);
   }
+
+  const isValid = ()=> {
+    return (
+      profile.name.length === 0 || profile.link.length === 0
+    );
+  }
   return (
-    <Box sx={{margin: 'auto', width: '100%'}}>
+    <Box sx={{ margin: 'auto', width: '100%' }}>
       <Stack spacing={2}>
         <TextField
           onChange={setName}
           label="Profile Name"
           value={profile.name}
           disabled={isNotEmpty}
+          helperText={!isNotEmpty && "Project Name must be between 1 to 50 characters"}
         />
 
         <TextField
@@ -45,11 +52,12 @@ const AddProfile = (props) => {
           label="Enter Link"
           value={profile.link}
           disabled={isNotEmpty}
+          helperText={!isNotEmpty && "Must Be URL"}
         />
       </Stack>
 
       {
-        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isValid()}>Add</Button>
       }
     </Box>
   );

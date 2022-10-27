@@ -5,30 +5,44 @@ import Profile from './ProfileComponents/Simple';
 import About from './AboutComponents/Simple';
 import Education from "./EducationComponents/Simple";
 import Skill from "./SkillsComponents/Simple";
-import { Document, Page} from "@react-pdf/renderer";
-import {tempData } from "./Helper/TempData";
+import { Document, Page } from "@react-pdf/renderer";
+import { tempData } from "./Helper/TempData";
 
 
-const Simple = ({data, color}) => {
+const Simple = ({ data, color }) => {
   data = data.name.length === 0 ? tempData : data;
   return (
     <Document>
-    <Page style={{display:'flex', justifyContent:'flex-start'}}>
-      <Name name={data.name} title={data.position}/>
+      <Page style={{ display: 'flex', justifyContent: 'flex-start' }}>
+        {
+          data.name.length !== 0 && <Name name={data.name} title={data.position} />
+        }
 
-      <Profile profiles={data.profiles}/>
+        {
+          data.profiles.length !== 0 && <Profile profiles={data.profiles} />
+        }
 
-      <About detail={data.aboutMe} color={color} />
+        {
+          data.aboutMe.length !== 0 && <About detail={data.aboutMe} color={color} />
+        }
 
-      <Experience experiences={data.experiences} color={color}/>
+        {
+          data.experiences.length !== 0 && <Experience experiences={data.experiences} color={color} />
+        }
 
-      <Education educations={data.educations} color={color} />
+        {
+          data.educations.length !== 0 && <Education educations={data.educations} color={color} />
+        }
 
-      <Skill skills={data.skills} color={color}/>
+        {
+          data.skills.length !== 0 && <Skill skills={data.skills} color={color} />
+        }
 
-      <Project projects={data.projects} color={color}/>
-    </Page>
-  </Document>
+        {
+          data.projects.length !== 0 && <Project projects={data.projects} color={color} />
+        }
+      </Page>
+    </Document>
   );
 };
 

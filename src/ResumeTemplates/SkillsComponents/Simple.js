@@ -8,8 +8,8 @@ const Skill = ({skills, color}) => {
       <Divide title="Skills" color={color}/>
       <View style={{...Style.rowView, justifyContent: 'flex-start'}}>
         {
-          skills.map((obj)=> (
-            <Text style={{...Style.skillText, borderColor: color}}>{obj}</Text>
+          skills.map((obj, idx)=> (
+            <Text key={idx} style={{...Style.skillText, borderColor: color}}>{obj}</Text>
           ))
         }
       </View>

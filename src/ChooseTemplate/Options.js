@@ -1,6 +1,6 @@
 
 import { Avatar, Grid, Paper, Typography, Button} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { SIMPLE_ID, MATRIX_ID,DARK_RED_MATRIX_ID,DARK_RED_SIMPLE_ID } from "../helper/Strings";
 
 const Options = () => {
@@ -29,17 +29,27 @@ const Options = () => {
             imageLocation: "/darkredsimple.png",
         },
     ];
+    const search = new URLSearchParams(useLocation().search);
+    const resumeId = search.get('id');
+    const resumeName = search.get('name');
 
+
+    const onTemplateClick = (obj) => {
+        let url = "/download/" + obj.id;
+        url += "?name=" + (resumeName!==null ? resumeName : obj.name);
+        url += resumeId !== null ? "&id="+resumeId : "";
+        navigate(url);
+    }
     return (
         <Grid container spacing={3} justifyContent="space-evenly" my={2}>
             {
                 templates.map((obj) => (
-                    <Grid item>
+                    <Grid key={obj.id} item>
                         <Button sx={{
                             width: '150px', transition: 'width .2s ease .2s', ":hover": {
                                 width: '200px'
                             }
-                        }} onClick={() => navigate("/download/" + obj.id+"?name="+obj.name)}>
+                        }} onClick={()=> onTemplateClick(obj)}>
                             <Paper sx={{ width: 'auto', height: 'auto' }}>
                                 <Avatar variant="rounded" src={FOLDER_LOCATION+obj.imageLocation} sx={{ width: 'auto', height: 'auto' }} />
                                 <Typography variant="h7" align="center">{obj.name}</Typography>

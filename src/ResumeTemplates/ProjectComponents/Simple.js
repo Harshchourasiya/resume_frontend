@@ -25,8 +25,8 @@ const Project = ({projects, color}) => {
       <Divide title="Projects" color={color} />
       <View style={{height: '10px'}}/>
       {
-        projects.map((obj) => (
-          <PRO data={obj} />
+        projects.map((obj, idx) => (
+          <PRO data={obj} key={idx}/>
         ))
       }
     </View>

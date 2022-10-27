@@ -33,8 +33,10 @@ const Input = (props) => {
   const [value, setValue] = useState(data.val);
 
   const onChange = (event) => {
-    data.add(event.target.value);
-    setValue(event.target.value);
+    if (event.target.value.length <= 500) {
+      data.add(event.target.value);
+      setValue(event.target.value);
+    }
   };
 
   return props.isMultiline ? (
@@ -44,7 +46,13 @@ const Input = (props) => {
       variant="outlined"
       onChange={onChange}
       multiline
-      maxRows={4}
+      maxRows={2}
+      inputProps={{
+        style: {
+          height: "200px",
+        },
+      }}
+      helperText={"About Me should me more than 200 characters, At most 500 characters"}
     />
   ) : (
     <TextField
@@ -52,6 +60,7 @@ const Input = (props) => {
       value={value}
       variant="outlined"
       onChange={onChange}
+      helperText={"Required*"}
     />
   );
 };

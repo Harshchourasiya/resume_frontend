@@ -14,27 +14,43 @@ const Matrix = ({ data, color }) => {
     return (
         <Document>
             <Page style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <Name name={data.name} title={data.position} style={{ textAlign: 'center' }} />
+                {
+                    data.name.length !== 0 && <Name name={data.name} title={data.position} style={{ textAlign: 'center' }} />
+                }
 
-                <Profile profiles={data.profiles} style={{ justifyContent: 'center' }} />
+                {
+                      data.profiles.length !== 0 && <Profile profiles={data.profiles} style={{ justifyContent: 'center' }} />
+                }
 
-                <View style={{...Style.flexRowInBetween, alignItems: 'center', alignContent: 'center'
+                <View style={{
+                    ...Style.flexRowInBetween, alignItems: 'center', alignContent: 'center'
                 }}>
-                    <View style={{ width: '50%'}}>
-                        <About detail={data.aboutMe} color={color}/>
+                    <View style={{ width: '50%' }}>
+                        {
+                           data.aboutMe.length !== 0 && <About detail={data.aboutMe} color={color} />
+                        }
                     </View>
-                    <View style={{width: '1px', backgroundColor: color, height: '90%', marginTop: '20px'}}/>
+                    {
+                       data.aboutMe.length !== 0 && data.educations.length !== 0 &&  <View style={{ width: '1px', backgroundColor: color, height: '90%', marginTop: '20px' }} />
+                    }
                     <View style={{ width: '50%', height: '100%' }}>
-                        <Education educations={data.educations} color={color} />
+                        {
+                            data.educations.length !== 0 && <Education educations={data.educations} color={color} />
+                        }
                     </View>
                 </View>
 
-                <Experience experiences={data.experiences} color={color}/>
+                {
+                    data.experiences.length !== 0 && <Experience experiences={data.experiences} color={color} />
+                }
 
+                {
+                   data.skills.length !== 0 && <Skill skills={data.skills} color={color} />
+                }
 
-                <Skill skills={data.skills} color={color}/>
-
-                <Project projects={data.projects} color={color}/>
+                {
+                    data.projects.length !== 0 && <Project projects={data.projects} color={color} />
+                }
             </Page>
         </Document>
     );

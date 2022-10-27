@@ -4,10 +4,12 @@ import {
   Typography,
   Button,
   Stack,
+  CircularProgress,
+  Paper,
   Zoom
 } from "@mui/material";
-import { useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react";
 import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
 import Addable from "./InputComponents/Addable";
 import AddExperience from "./InputComponents/Experience";
@@ -15,14 +17,14 @@ import AddEducation from "./InputComponents/Education";
 import AddSkill from "./InputComponents/Skill";
 import AddProject from "./InputComponents/Project";
 import AddProfile from "./InputComponents/Profile";
-import Name from './LottieJSON/Name.json';
-import Title from './LottieJSON/Title.json';
-import AboutMe from './LottieJSON/AboutMe.json';
-import Experience from './LottieJSON/Experience.json';
-import Education from './LottieJSON/Education.json';
-import Profile from './LottieJSON/Profile.json';
-import Skills from './LottieJSON/Skills.json';
-import Project from './LottieJSON/Project.json';
+import Name from '../LottieJSON/Name.json';
+import Title from '../LottieJSON/Title.json';
+import AboutMe from '../LottieJSON/AboutMe.json';
+import Experience from '../LottieJSON/Experience.json';
+import Education from '../LottieJSON/Education.json';
+import Profile from '../LottieJSON/Profile.json';
+import Skills from '../LottieJSON/Skills.json';
+import Project from '../LottieJSON/Project.json';
 import Lottie from 'react-lottie';
 import Typewriter from 'typewriter-effect';
 import {
@@ -31,7 +33,11 @@ import {
   SKILL,
   PROJECT,
   PROFILE,
+  CREATE_ID,
 } from "../helper/Strings";
+import { getResume } from '../helper/API/Resume';
+import { setAllData } from "../Redux/Actions/index";
+import { connect } from "react-redux";
 
 const inputs = [
   {
@@ -78,7 +84,7 @@ const inputs = [
   },
 ];
 
-const renderComponent = (idx) => {
+const renderInputComponent = (idx) => {
   return (
     <Stack
       container
@@ -113,57 +119,101 @@ const renderComponent = (idx) => {
   )
 }
 
-const Collector = () => {
+const Collector = (props) => {
   const [idx, setIdx] = useState(0);
   const [check, setCheck] = useState(true);
+  const [savedResume, setSavedResume] = useState();
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const search = new URLSearchParams(useLocation().search);
+  const resumeId = search.get('id');
+  const resumeName = search.get('name');
+
+  useEffect(() => {
+    if (resumeId !== null && resumeId !== CREATE_ID && savedResume === undefined) {
+      getResume(setSavedResume, resumeId);
+    } else if (savedResume !== undefined) {
+      props.setAllData(savedResume);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  }, [savedResume]);
 
 
-  const goBack = () => {
+  const onFinishClick = () => {
+    let url = "/choose";
+    url += (resumeId !== null ? "?id=" + resumeId : "");
+    url += (resumeName !== null ? "&name=" + resumeName : "");
+    navigate(url);
+  }
+
+  const move = (value) => {
+    setLoading(true);
     setCheck(false);
     setTimeout(() => {
-      setIdx(idx - 1);
+      setIdx(idx + value);
+      setLoading(false);
       setCheck(true);
-    }, 400);
-  };
+    }, 200);
+  }
 
-  const goForward = () => {
-    setCheck(false);
-    setTimeout(() => {
-      setIdx(idx + 1);
-      setCheck(true);
-    }, 400);
-  };
   return (
     <Container>
       <Stack
-        container
         direction="column"
         justifyContent="space-between"
         spacing={5}
       >
-        <Zoom in={check}>
-          {renderComponent(idx)}
-        </Zoom>
 
-        <Stack container direction="row" justifyContent="space-between">
-          <Box>
-            <Button variant="outlined" onClick={goBack} disabled={idx === 0}>
-              Back
-            </Button>
-          </Box>
-          {
-            idx === inputs.length - 1 ? <Button onClick={() => navigate("/choose")}>Finish</Button> :
-              <Box>
-                <Button variant="outlined" onClick={goForward}>
-                  Next
-                </Button>
-              </Box>
-          }
-        </Stack>
+        {
+          loading ?
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              minHeight="90vh"
+            >
+              <CircularProgress disableShrink sx={{ margin: 'auto' }} />
+            </Box>
+            :
+            <Zoom in={check}>
+              {
+                renderInputComponent(idx)
+              }
+            </Zoom>
+        }
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: '#FFF', zIndex: 1100, }} elevation={3}>
+          <Stack container direction="row" justifyContent="space-around" padding={1}>
+            <Box>
+              <Button variant="outlined" onClick={() => move(-1)} disabled={idx === 0}>
+                Back
+              </Button>
+            </Box>
+            {
+              idx === inputs.length - 1 ? <Button onClick={onFinishClick} >
+                Finish
+              </Button> :
+                <Box>
+                  <Button variant="outlined" onClick={() => move(1)} disabled={props.name.length === 0} >
+                    Next
+                  </Button>
+                </Box>
+            }
+
+          </Stack>
+        </Paper>
+
       </Stack>
     </Container>
   );
 };
 
-export default Collector;
+const mapStateToProps = (state) => ({
+  ...state,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setAllData: (data) => dispatch(setAllData(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Collector);

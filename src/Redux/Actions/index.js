@@ -5,7 +5,9 @@ import { ADD_NAME,
     REMOVE_EXPERIENCE, 
     ADD_EDUCATION,
     REMOVE_EDUCATION, 
-    ADD_SKILL, REMOVE_SKILL, ADD_PROJECT, REMOVE_PROJECT, REMOVE_PROFILE, ADD_PROFILE} from '../../helper/Strings';
+    ADD_SKILL, REMOVE_SKILL, ADD_PROJECT, REMOVE_PROJECT, REMOVE_PROFILE, ADD_PROFILE,
+    SET_ALL_DATA,
+    IS_USER} from '../../helper/Strings';
 
 const addName = (name) => {
     return {
@@ -98,6 +100,20 @@ const removeProfile = (idx) => {
     }
 }
 
+const setAllData = (data)=> {
+    return {
+        type: SET_ALL_DATA,
+        data
+    }
+}
+
+const setIsUser = (isUser) => {
+    return {
+        type : IS_USER,
+        isUser
+    }
+}
+
 export {
     addName,
     addTitle,
@@ -111,5 +127,7 @@ export {
     addProject,
     removeProject,
     addProfile,
-    removeProfile
+    removeProfile,
+    setAllData,
+    setIsUser 
 }
