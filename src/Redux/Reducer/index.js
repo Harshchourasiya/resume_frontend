@@ -107,6 +107,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       const projects = getFrontEndProjectFromBackend(action.Projects);
       const profiles = getFrontEndProfileFromBackend(action.Profiles);
       const res = {
+        isUser : state.isUser,
         name : action.Name,
         title: action.Position,
         aboutMe : action.AboutMe,
