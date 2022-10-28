@@ -2,6 +2,7 @@
 This website will help you to create your resume instantly with AI suggestions. AI will help you to know what is the best place or word to use in your resume. You can create your resume in 5 Minutes and Download it on PDF formate.
 visit the website from [here](https://resumebuilderreactjs.netlify.app/)
 
+**visit backend of the project from [here](https://github.com/Harshchourasiya/Resume_backend)**
 ### Table of Contents 📝
 
 - [Project Details](https://github.com/Harshchourasiya/resume_frontend#project-details)
