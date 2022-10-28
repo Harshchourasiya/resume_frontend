@@ -1,4 +1,4 @@
-import { Avatar, Container, Stack, Typography, Button, Divider, Paper, useTheme, Zoom } from "@mui/material";
+import { Avatar, Container, Stack, Typography, Button, Divider, Paper, useTheme, Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteResume } from "../helper/API/Resume";
@@ -11,28 +11,28 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { setIsUser } from "../Redux/Actions";
 import { connect } from "react-redux";
 
-const Resume = ({ resume, navigate, remover}) => {
+const Resume = ({ resume, navigate, remover }) => {
     const onDeleteClick = () => {
         deleteResume({ resumeId: resume.ResumeId });
         remover(resume)
     }
     return (
-            <Paper>
-                <Stack>
-                    <Button onClick={() => {
-                        navigate("../collector?id=" + resume.ResumeId + "&name=" + resume.ResumeName);
-                    }}>
+        <Paper>
+            <Stack>
+                <Button onClick={() => {
+                    navigate("../collector?id=" + resume.ResumeId + "&name=" + resume.ResumeName);
+                }}>
 
-                        <Container>
-                            <DescriptionIcon />
-                            <Typography>{resume.ResumeName}</Typography>
-                        </Container>
-                    </Button>
-                    <Button variant="contained" onClick={onDeleteClick} startIcon={<DeleteIcon />} sx={{ backgroundColor: '#FF0000', color: '#FFF' }}>
-                        Delete
-                    </Button>
-                </Stack>
-            </Paper>
+                    <Container>
+                        <DescriptionIcon />
+                        <Typography>{resume.ResumeName}</Typography>
+                    </Container>
+                </Button>
+                <Button variant="contained" onClick={onDeleteClick} startIcon={<DeleteIcon />} sx={{ backgroundColor: '#FF0000', color: '#FFF' }}>
+                    Delete
+                </Button>
+            </Stack>
+        </Paper>
     );
 }
 
@@ -44,12 +44,10 @@ const Profile = (props) => {
         Email: "",
         Resumes: []
     });
-    const [loading, setLoading] = useState(true);
     const theme = useTheme();
 
     useEffect(() => {
         getUserInfo(setData);
-        setInterval(() => setLoading(false), 500);
     }, []);
 
 
@@ -72,8 +70,8 @@ const Profile = (props) => {
         });
     }
 
-    return (
-        <Container>
+    const ProfileComponent = () => {
+        return (
             <Stack spacing={3} my={2}>
                 <Stack direction={'row'} justifyContent={'space-between'} alignItem='center' alignContent={'center'} spacing={1} >
                     <Avatar sx={{ bgcolor: theme.palette.secondary.main }} variant="rounded">{data.Name.charAt(0).toUpperCase()}</Avatar>
@@ -95,7 +93,7 @@ const Profile = (props) => {
                                 <Resume key={resume.ResumeId} resume={resume} navigate={navigate} remover={removeFromResumes} />
                             ))
                             :
-                            !loading && <Lottie
+                            <Lottie
                                 options={{ animationData: Empty, loop: true }}
                                 height={200}
                                 width={200}
@@ -103,6 +101,23 @@ const Profile = (props) => {
                     }
                 </Stack>
             </Stack>
+        );
+    }
+
+    return (
+        <Container>
+            {
+                data.Name.length === 0 ? <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    minHeight="90vh"
+                >
+                    <CircularProgress disableShrink sx={{ margin: 'auto' }} />
+                </Box>
+                    :
+                    <ProfileComponent />
+            }
         </Container>
     )
 }

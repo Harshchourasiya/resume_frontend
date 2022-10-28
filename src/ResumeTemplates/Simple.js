@@ -15,7 +15,7 @@ const Simple = ({ data, color }) => {
     <Document>
       <Page style={{ display: 'flex', justifyContent: 'flex-start' }}>
         {
-          data.name.length !== 0 && <Name name={data.name} title={data.position} />
+          data.name.length !== 0 && <Name name={data.name} title={data.title} />
         }
 
         {

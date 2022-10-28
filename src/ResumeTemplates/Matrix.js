@@ -15,7 +15,7 @@ const Matrix = ({ data, color }) => {
         <Document>
             <Page style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 {
-                    data.name.length !== 0 && <Name name={data.name} title={data.position} style={{ textAlign: 'center' }} />
+                    data.name.length !== 0 && <Name name={data.name} title={data.title} style={{ textAlign: 'center' }} />
                 }
 
                 {
