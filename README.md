@@ -1,6 +1,8 @@
 # Resume Builder - Instant + Professional 📄
-This website will help you to create your resume instantly with AI suggestions. AI will help you to know what is the best place or word to use in your resume. You can create your resume in 5 Minutes and Download it on PDF, DOC, ... PNG formates. 
+This website will help you to create your resume instantly with AI suggestions. AI will help you to know what is the best place or word to use in your resume. You can create your resume in 5 Minutes and Download it on PDF formate.
+visit the website from [here](https://resumebuilderreactjs.netlify.app/)
 
+**visit backend of the project from [here](https://github.com/Harshchourasiya/Resume_backend)**
 ### Table of Contents 📝
 
 - [Project Details](https://github.com/Harshchourasiya/resume_frontend#project-details)
@@ -10,24 +12,28 @@ This website will help you to create your resume instantly with AI suggestions. 
 
 ## Project Details 📔
 
-This website will help to create resumes instantly with AI suggestion like AI will let the user know that what is the correct work to use or What Hard or soft skills you should mention based on your position. It will be really helpful for freshers and Students.
+This website will help you to create your resume instantly with AI suggestions. AI will help you to know what is the best place or word to use in your resume. You can create your resume in 5 Minutes and Download it on PDF formate. You can create your account and you can save the resume for later so that if you want to edit you just need to change and download the PDF. You can also select templates according to your liking.
 
 ### Developing Proccess:
 
-### Phase 1 :
-     Everything starts with small so this project is also starts with Resume builder. 
-     In this phase We just create a Resume Builder that can instanly create the resume for the user and user can download it.
-     Wireframes :
+### Phase 1 (Almost Complete):
+     In this phase We just create a Resume Builder that can instanly create the resume for the user and user can download it. 
+     User can create account and save resume with templates
+     Complete Resume Builder walk through :
      
-https://user-images.githubusercontent.com/48551992/192144929-ba5fd71e-58b1-44dd-b61e-350d65731a87.mp4
 
-### Phase 2:
+https://user-images.githubusercontent.com/48551992/198675257-0d6282c2-8cf5-45db-851a-3fc8176ed456.mp4
+
+
+
+### Phase 2 (Start Soon):
      In this Phase will be integrate AI system. Details will be added soon
 
 ## Technologies 📝
 
 - React : 18.2 
 - Material UI : 5.10
+- Redux : 4.2
 
 ## Setup 👨‍💻 👩‍💻
 
