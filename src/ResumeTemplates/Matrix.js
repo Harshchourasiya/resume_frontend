@@ -19,7 +19,7 @@ const Matrix = ({ data, color }) => {
                 }
 
                 {
-                      data.profiles.length !== 0 && <Profile profiles={data.profiles} style={{ justifyContent: 'center' }} />
+                    data.profiles.length !== 0 && <Profile profiles={data.profiles} style={{ justifyContent: 'center' }} />
                 }
 
                 <View style={{
@@ -27,11 +27,11 @@ const Matrix = ({ data, color }) => {
                 }}>
                     <View style={{ width: '50%' }}>
                         {
-                           data.aboutMe.length !== 0 && <About detail={data.aboutMe} color={color} />
+                            data.aboutMe.length !== 0 && <About detail={data.aboutMe} color={color} />
                         }
                     </View>
                     {
-                       data.aboutMe.length !== 0 && data.educations.length !== 0 &&  <View style={{ width: '1px', backgroundColor: color, height: '90%', marginTop: '20px' }} />
+                        data.aboutMe.length !== 0 && data.educations.length !== 0 && <View style={{ width: '1px', backgroundColor: color, height: '90%', marginTop: '20px' }} />
                     }
                     <View style={{ width: '50%', height: '100%' }}>
                         {
@@ -45,7 +45,7 @@ const Matrix = ({ data, color }) => {
                 }
 
                 {
-                   data.skills.length !== 0 && <Skill skills={data.skills} color={color} />
+                    data.skills.length !== 0 && <Skill skills={data.skills} color={color} />
                 }
 
                 {

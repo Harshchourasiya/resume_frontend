@@ -117,7 +117,7 @@ const DownloadResume = (props) => {
             </Box>
 
             <ResumeNameDialog open={open} setOpen={setOpen} setResumeName={setResumeName} toSaveResume={toSaveResume} resumeName={resumeName} />
-            
+
             <Snackbar open={isSuccess} autoHideDuration={6000} onClose={() => setIsSuccess(false)}>
                 <Alert onClose={() => setIsSuccess(false)} severity={isSuccess ? 'success' : 'error'} sx={{ width: '100%' }}>
                     {

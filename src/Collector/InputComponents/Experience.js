@@ -52,42 +52,42 @@ const AddExperience = (props) => {
 
   const inputs = [
     {
-      label : "Enter Company Name",
-      value : experience.companyName,
+      label: "Enter Company Name",
+      value: experience.companyName,
       helperText: "Enter Company Name must be between 1 to 100 characters",
-      onChange : setCompanyName
+      onChange: setCompanyName
     },
     {
-      label : "Enter Your Position",
-      value : experience.position,
+      label: "Enter Your Position",
+      value: experience.position,
       helperText: "Enter Major must be between 1 to 50 characters",
-      onChange : setPosition
+      onChange: setPosition
     },
     {
-      label : "Enter your Duties",
-      value : experience.duties,
+      label: "Enter your Duties",
+      value: experience.duties,
       helperText: "Enter Duties should be between 100 to 300 characters",
-      onChange : setDuties,
+      onChange: setDuties,
       multiline: true
     },
     {
-      label : "Starting Date",
-      value : experience.starting,
+      label: "Starting Date",
+      value: experience.starting,
       helperText: "Enter Starting Date must be like May 2021 or 01-07-2020",
-      onChange : setStartingDate
+      onChange: setStartingDate
     },
     {
-      label : "Ending Date",
-      value : experience.ending,
+      label: "Ending Date",
+      value: experience.ending,
       helperText: "Enter Starting Date must be like May 2021 or 01-07-2020 or Present",
-      onChange : setEndingDate
+      onChange: setEndingDate
     },
   ];
 
   const isValid = () => {
     return (
       experience.companyName.length === 0 || experience.position.length === 0
-          || experience.duties.length === 0 || experience.starting.length === 0 || experience.ending.length=== 0
+      || experience.duties.length === 0 || experience.starting.length === 0 || experience.ending.length === 0
     );
   }
 
@@ -95,21 +95,21 @@ const AddExperience = (props) => {
     <Box sx={{ margin: 'auto', width: '100%' }}>
       <Stack spacing={2}>
         {
-          inputs.map((obj, idx)=> (
+          inputs.map((obj, idx) => (
             <TextField
-            key={idx}
-            onChange={obj.onChange}
-            label={obj.label}
-            value={obj.value}
-            disabled={isNotEmpty}
-            helperText={!isNotEmpty && obj.helperText}
-            multiline={obj.multiline}
-            inputProps={{
-              style: {
-                height: obj.multiline && "100px",
-              },
-            }}
-          />
+              key={idx}
+              onChange={obj.onChange}
+              label={obj.label}
+              value={obj.value}
+              disabled={isNotEmpty}
+              helperText={!isNotEmpty && obj.helperText}
+              multiline={obj.multiline}
+              inputProps={{
+                style: {
+                  height: obj.multiline && "100px",
+                },
+              }}
+            />
           ))
         }
       </Stack>

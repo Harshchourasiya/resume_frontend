@@ -1,3 +1,5 @@
+// for redux store action ID
+
 const ADD_NAME = "AddName";
 const ADD_TITLE = "AddTitle";
 const ADD_ABOUT_ME = "AddAboutMe";
@@ -14,6 +16,7 @@ const REMOVE_PROFILE = "removeProfile";
 const SET_ALL_DATA = "setalldata";
 const IS_USER = "isuser";
 
+// for addable 
 const SKILL = "Skill";
 const EXPERIENCE = "Experience";
 const EDUCATION = "Education";
@@ -21,21 +24,24 @@ const PROJECT = "Project";
 const PROFILE = "Profile";
 
 
+// resume templates id
 const SIMPLE_ID = "simple";
 const MATRIX_ID = "matrix"
 const DARK_RED_SIMPLE_ID = "darkredsimple";
 const DARK_RED_MATRIX_ID = "darkredmatrix"
 
 
+// respone ids
 const SUCCESS = "Success";
 const FAILED = "Failed";
 
 
+// api details
 const API = process.env.REACT_APP_API_URL;
 const API_USER = API + "user/";
 const API_USER_RESUME = API_USER + "resume/";
 
-
+// create id for unknow users
 const CREATE_ID = "KANSBXJ3J1JBCS";
 
 

@@ -12,14 +12,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <Stack>
-        <AppBar/>
+        <AppBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collector" element={<Collector />} />
           <Route path="/choose" element={<ChooseTemplate />} />
           <Route path="/download/:id" element={<DownloadResume />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFound/>}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Stack>
     </BrowserRouter>

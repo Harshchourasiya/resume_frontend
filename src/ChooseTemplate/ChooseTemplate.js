@@ -9,13 +9,13 @@ const ChooseTemplate = () => {
     return (
         <Container>
             <Stack spacing={3} direction="row" justifyContent={"space-between"}>
-                <IconButton onClick={()=> navigate(-1)} >
-                    <ArrowBackIcon/>
+                <IconButton onClick={() => navigate(-1)} >
+                    <ArrowBackIcon />
                 </IconButton>
-            <Typography variant="h3" align="center">Choose Template</Typography>
-            <div></div>
+                <Typography variant="h3" align="center">Choose Template</Typography>
+                <div></div>
             </Stack>
-            <Options/>
+            <Options />
         </Container>
     );
 };

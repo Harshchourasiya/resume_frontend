@@ -31,7 +31,7 @@ const AddProfile = (props) => {
     props.removeProfile(props.idx);
   }
 
-  const isValid = ()=> {
+  const isValid = () => {
     return (
       profile.name.length === 0 || profile.link.length === 0
     );

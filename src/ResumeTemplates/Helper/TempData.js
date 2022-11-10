@@ -74,14 +74,14 @@ const tempProjects = [
 ];
 
 const tempData = {
-  name : "Harsh",
-  position : "SDE",
-  aboutMe : "Amet ipsum ad voluptate cupidatat quis. Tempor minim anim pariatur quis est. Non fugiat velit laboris ad velit sunt ipsum consequat sit velit.Do quis enim proident id ullamco ut amet reprehenderit enim proident exercitation sit. Sunt deserunt ex tempor exercitation pariatur est commodo. Qui consequat elit excepteur voluptate. Tempor laborum minim excepteur aute eu consectetur minim dolore eiusmod dolor deserunt nostrud. Tempor est aliquip eu cillum non mollit dolor qui esse officia non adipisicing in.",
+  name: "Harsh",
+  position: "SDE",
+  aboutMe: "Amet ipsum ad voluptate cupidatat quis. Tempor minim anim pariatur quis est. Non fugiat velit laboris ad velit sunt ipsum consequat sit velit.Do quis enim proident id ullamco ut amet reprehenderit enim proident exercitation sit. Sunt deserunt ex tempor exercitation pariatur est commodo. Qui consequat elit excepteur voluptate. Tempor laborum minim excepteur aute eu consectetur minim dolore eiusmod dolor deserunt nostrud. Tempor est aliquip eu cillum non mollit dolor qui esse officia non adipisicing in.",
   educations: tempEducation,
   experiences: tempExperience,
-  profiles : tempProfiles,
-  projects : tempProjects,
-  skills : tempSkills
+  profiles: tempProfiles,
+  projects: tempProjects,
+  skills: tempSkills
 };
 
 

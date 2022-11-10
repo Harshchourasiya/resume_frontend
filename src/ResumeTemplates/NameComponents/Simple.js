@@ -3,8 +3,8 @@ import Style from '../Helper/Style';
 
 const Name = ({ name, title, style }) => {
   return (
-    <View style={{...Style.view, ...style}}>
-      <Text style={{...Style.mainText, fontSize: '30px'}}>{name}</Text>
+    <View style={{ ...Style.view, ...style }}>
+      <Text style={{ ...Style.mainText, fontSize: '30px' }}>{name}</Text>
       <Text style={Style.subText}>{title}</Text>
     </View>
   );
