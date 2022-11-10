@@ -62,7 +62,7 @@ const HomeDialog = ({ onClose, open, isLogin }) => {
         {login.isLogin ? login.detail : create.detail}
       </DialogContentText>
       <DialogContent>
-        {login.isLogin ? <LoginDialog toCloseLoginDialog={onClose}/> : <CreateAccountDialog isAccountCreated={isAccountCreated} />}
+        {login.isLogin ? <LoginDialog toCloseLoginDialog={onClose} /> : <CreateAccountDialog isAccountCreated={isAccountCreated} />}
         <Stack>
           {login.isLogin ? (
             <Button onClick={openCreateAccountDialog}>Create Account</Button>

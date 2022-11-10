@@ -9,7 +9,7 @@ import Options from '../ChooseTemplate/Options';
 import Typewriter from 'typewriter-effect';
 
 const Home = () => {
-  
+
   const navigate = useNavigate();
   const theme = useTheme();
   const secondaryMainColor = theme.palette.secondary.main;
@@ -29,14 +29,14 @@ const Home = () => {
           <Container sx={{ textAlign: "center" }}>
             <Stack direction={'row'} justifyContent={'center'} alignItem={'center'}>
               <Typography variant="h2" mx={1}>Create</Typography>
-              <Typography variant="h2" sx={{ color: theme.palette.secondary.main}}>  
-              <Typewriter
-                options={{
-                  strings: typingEffectLines,
-                  autoStart: true,
-                  loop: true,
-                }}
-              /> </Typography>
+              <Typography variant="h2" sx={{ color: theme.palette.secondary.main }}>
+                <Typewriter
+                  options={{
+                    strings: typingEffectLines,
+                    autoStart: true,
+                    loop: true,
+                  }}
+                /> </Typography>
             </Stack>
             <Typography variant="h7">
               Prepare for Real Interview

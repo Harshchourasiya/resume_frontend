@@ -1,7 +1,7 @@
 
-import { Avatar, Grid, Paper, Typography, Button} from "@mui/material";
+import { Avatar, Grid, Paper, Typography, Button } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { SIMPLE_ID, MATRIX_ID,DARK_RED_MATRIX_ID,DARK_RED_SIMPLE_ID } from "../helper/Strings";
+import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../helper/Strings";
 
 const Options = () => {
 
@@ -36,8 +36,8 @@ const Options = () => {
 
     const onTemplateClick = (obj) => {
         let url = "/download/" + obj.id;
-        url += "?name=" + (resumeName!==null ? resumeName : obj.name);
-        url += resumeId !== null ? "&id="+resumeId : "";
+        url += "?name=" + (resumeName !== null ? resumeName : obj.name);
+        url += resumeId !== null ? "&id=" + resumeId : "";
         navigate(url);
     }
     return (
@@ -49,9 +49,9 @@ const Options = () => {
                             width: '150px', transition: 'width .2s ease .2s', ":hover": {
                                 width: '200px'
                             }
-                        }} onClick={()=> onTemplateClick(obj)}>
+                        }} onClick={() => onTemplateClick(obj)}>
                             <Paper sx={{ width: 'auto', height: 'auto' }}>
-                                <Avatar variant="rounded" src={FOLDER_LOCATION+obj.imageLocation} sx={{ width: 'auto', height: 'auto' }} />
+                                <Avatar variant="rounded" src={FOLDER_LOCATION + obj.imageLocation} sx={{ width: 'auto', height: 'auto' }} />
                                 <Typography variant="h7" align="center">{obj.name}</Typography>
                             </Paper>
                         </Button>

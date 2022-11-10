@@ -31,7 +31,7 @@ const Experience = ({ experiences, color }) => {
 
       {
         experiences.map((obj, idx) => (
-          <EXP data={obj} key={idx}/>
+          <EXP data={obj} key={idx} />
         ))
       }
     </View>

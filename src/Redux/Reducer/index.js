@@ -17,8 +17,10 @@ import {
 } from "../../helper/Strings";
 
 import { INITIAL_STATE } from "../../helper/InitialState";
-import {getFrontEndProjectFromBackend, getFrontEndProfileFromBackend, getFrontEndExperienceFromBackend,
-  getFrontEndEducationFromBackend} from '../../helper/UtilityMethods';
+import {
+  getFrontEndProjectFromBackend, getFrontEndProfileFromBackend, getFrontEndExperienceFromBackend,
+  getFrontEndEducationFromBackend
+} from '../../helper/UtilityMethods';
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_NAME:
@@ -107,21 +109,21 @@ const reducer = (state = INITIAL_STATE, action) => {
       const projects = getFrontEndProjectFromBackend(action.Projects);
       const profiles = getFrontEndProfileFromBackend(action.Profiles);
       const res = {
-        isUser : state.isUser,
-        name : action.Name,
+        isUser: state.isUser,
+        name: action.Name,
         title: action.Position,
-        aboutMe : action.AboutMe,
+        aboutMe: action.AboutMe,
         educations: education,
-        experiences : experience,
-        projects : projects,
-        profiles : profiles,
-        skills : action.Skills
+        experiences: experience,
+        projects: projects,
+        profiles: profiles,
+        skills: action.Skills
       };
       return res;
-    case IS_USER: 
+    case IS_USER:
       return {
         ...state,
-        isUser : action.isUser
+        isUser: action.isUser
       };
     default:
       return state;

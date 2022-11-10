@@ -31,7 +31,7 @@ const AddSkill = (props) => {
           helperText={!isNotEmpty && "Skills Must contains at least 1 character and at most 50 Character"}
         />
         {
-          isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={skill.length===0 || skill.length > 50}>Add</Button>
+          isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={skill.length === 0 || skill.length > 50}>Add</Button>
         }
       </Stack>
     </Box>

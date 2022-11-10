@@ -41,7 +41,7 @@ const Style = StyleSheet.create({
         borderRadius: '5px'
     },
 
-    dateText : {
+    dateText: {
         fontFamily: "Courier-Bold",
         fontSize: "15px"
     }

@@ -58,7 +58,7 @@ const AddProject = (props) => {
     },
   ]
 
-  const isValid = ()=> {
+  const isValid = () => {
     return (
       project.name.length === 0 || project.detail.length === 0 || project.link.length === 0
     );
@@ -69,7 +69,7 @@ const AddProject = (props) => {
         {
           inputs.map((obj, idx) => (
             <TextField
-              key = {idx}
+              key={idx}
               onChange={obj.onChange}
               label={obj.label}
               value={obj.value}

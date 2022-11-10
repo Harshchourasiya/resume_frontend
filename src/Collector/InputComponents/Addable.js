@@ -12,10 +12,8 @@ const getData = (props) => {
   switch (props.type) {
     case EXPERIENCE:
       return props.experiences;
-
     case EDUCATION:
       return props.educations;
-
     case SKILL:
       return props.skills;
     case PROJECT:
@@ -38,7 +36,7 @@ const Addable = (props) => {
         spacing={2}>
         <props.component idx={-1} />
         {data.map((obj, idx) => (
-          <props.component idx={idx} key={idx}/>
+          <props.component idx={idx} key={idx} />
         ))}
       </Stack>
     </Box>
