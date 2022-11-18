@@ -1,5 +1,5 @@
 import { View, Text, Link } from "@react-pdf/renderer";
-import Style from '../../Components/ResumeTemplates/helper/Style'
+import Style from '../helper/Style'
 const Profile = ({ profiles, style }) => {
   return (
     <View style={{ ...Style.rowView, justifyContent: 'flex-start', paddingHorizontal: '10px', paddingVertical: '0px', ...style }}>

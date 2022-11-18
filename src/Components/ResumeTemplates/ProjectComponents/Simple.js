@@ -1,6 +1,6 @@
-import { Divide } from '../../Components/ResumeTemplates/helper/Design';
+import { Divide } from '../helper/Design';
 import { View, Text, Link } from '@react-pdf/renderer';
-import Style from '../../Components/ResumeTemplates/helper/Style';
+import Style from '../helper/Style';
 
 const PRO = ({ data }) => {
   return (

@@ -1,9 +1,9 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { Box } from "@mui/system";
-import { addProfile, removeProfile } from "../../Redux/Actions/index";
+import { addProfile, removeProfile } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { EMPTY_PROFILE } from "../../helper/InitialState";
+import { EMPTY_PROFILE } from "../../../helper/InitialState";
 const AddProfile = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.profiles[props.idx] : EMPTY_PROFILE;
