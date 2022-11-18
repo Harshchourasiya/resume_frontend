@@ -3,7 +3,7 @@ import { Stack } from "@mui/system";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChooseTemplate from "../Pages/ChooseTemplate/ChooseTemplate";
 import DownloadResume from "../Pages/DownloadResume/DownloadResume";
-import Profile from "../Profile/Profile";
+import Profile from "../Pages/Profile/Profile";
 import Collector from "../Pages/Collector/Collector";
 import Home from "../Pages/Home/Home";
 import NotFound from "../NotFound";

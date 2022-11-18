@@ -1,9 +1,9 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { Box } from "@mui/system";
-import { addEducation, removeEducation } from "../../Redux/Actions/index";
+import { addEducation, removeEducation } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { EMPTY_EDUCATION } from "../../helper/InitialState";
+import { EMPTY_EDUCATION } from "../../../helper/InitialState";
 
 const AddEducation = (props) => {
   const isNotEmpty = (props.idx !== -1);

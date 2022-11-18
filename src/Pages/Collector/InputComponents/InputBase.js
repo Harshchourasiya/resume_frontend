@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import { addName, addAboutMe, addTitle } from "../../Redux/Actions";
+import { addName, addAboutMe, addTitle } from "../../../Redux/Actions";
 import { connect } from "react-redux";
 
 const getAddMethod = (props) => {

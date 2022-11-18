@@ -1,8 +1,9 @@
 import { Button, TextField, Stack } from "@mui/material";
 import { Box } from "@mui/system";
-import { addSkill, removeSkill } from "../../Redux/Actions/index";
+import { addSkill, removeSkill } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
+
 const AddSkill = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.skills[props.idx] : "";

@@ -1,14 +1,14 @@
 import { Avatar, Container, Stack, Typography, Button, Divider, Paper, useTheme, Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteResume } from "../helper/API/Resume";
-import { getUserInfo, logoutUser } from "../helper/API/User";
-import { CREATE_ID } from "../helper/Strings";
+import { deleteResume } from "../../helper/API/Resume";
+import { getUserInfo, logoutUser } from "../../helper/API/User";
+import { CREATE_ID } from "../../helper/Strings";
 import Lottie from 'react-lottie';
 import Empty from '../LottieJSON/Empty.json';
 import DescriptionIcon from '@mui/icons-material/Description';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { setIsUser } from "../Redux/Actions";
+import { setIsUser } from "../../Redux/Actions";
 import { connect } from "react-redux";
 
 const Resume = ({ resume, navigate, remover }) => {
