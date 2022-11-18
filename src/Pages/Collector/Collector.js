@@ -10,13 +10,13 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react";
-import { NameInput, TitleInput, AboutMeInput } from "../../Collector/InputComponents/Input";
+import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
 import Addable from "./InputComponents/Addable";
-import AddExperience from "../../Collector/InputComponents/Experience";
-import AddEducation from "../../Collector/InputComponents/Education";
-import AddSkill from "../../Collector/InputComponents/Skill";
-import AddProject from "../../Collector/InputComponents/Project";
-import AddProfile from "../../Collector/InputComponents/Profile";
+import AddExperience from "./InputComponents/Experience";
+import AddEducation from "./InputComponents/Education";
+import AddSkill from "./InputComponents/Skill";
+import AddProject from "./InputComponents/Project";
+import AddProfile from "./InputComponents/Profile";
 import Name from '../../LottieJSON/Name.json';
 import Title from '../../LottieJSON/Title.json';
 import AboutMe from '../../LottieJSON/AboutMe.json';

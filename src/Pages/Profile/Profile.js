@@ -5,7 +5,7 @@ import { deleteResume } from "../../helper/API/Resume";
 import { getUserInfo, logoutUser } from "../../helper/API/User";
 import { CREATE_ID } from "../../helper/Strings";
 import Lottie from 'react-lottie';
-import Empty from '../LottieJSON/Empty.json';
+import Empty from '../../LottieJSON/Empty.json';
 import DescriptionIcon from '@mui/icons-material/Description';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { setIsUser } from "../../Redux/Actions";
