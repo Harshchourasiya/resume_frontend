@@ -6,7 +6,7 @@ import {
   PROFILE,
   PROJECT,
   SKILL,
-} from "../../helper/Strings";
+} from "../../../helper/Strings";
 
 const getData = (props) => {
   switch (props.type) {

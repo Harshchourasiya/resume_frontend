@@ -10,21 +10,21 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react";
-import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
+import { NameInput, TitleInput, AboutMeInput } from "../../Collector/InputComponents/Input";
 import Addable from "./InputComponents/Addable";
-import AddExperience from "./InputComponents/Experience";
-import AddEducation from "./InputComponents/Education";
-import AddSkill from "./InputComponents/Skill";
-import AddProject from "./InputComponents/Project";
-import AddProfile from "./InputComponents/Profile";
-import Name from '../LottieJSON/Name.json';
-import Title from '../LottieJSON/Title.json';
-import AboutMe from '../LottieJSON/AboutMe.json';
-import Experience from '../LottieJSON/Experience.json';
-import Education from '../LottieJSON/Education.json';
-import Profile from '../LottieJSON/Profile.json';
-import Skills from '../LottieJSON/Skills.json';
-import Project from '../LottieJSON/Project.json';
+import AddExperience from "../../Collector/InputComponents/Experience";
+import AddEducation from "../../Collector/InputComponents/Education";
+import AddSkill from "../../Collector/InputComponents/Skill";
+import AddProject from "../../Collector/InputComponents/Project";
+import AddProfile from "../../Collector/InputComponents/Profile";
+import Name from '../../LottieJSON/Name.json';
+import Title from '../../LottieJSON/Title.json';
+import AboutMe from '../../LottieJSON/AboutMe.json';
+import Experience from '../../LottieJSON/Experience.json';
+import Education from '../../LottieJSON/Education.json';
+import Profile from '../../LottieJSON/Profile.json';
+import Skills from '../../LottieJSON/Skills.json';
+import Project from '../../LottieJSON/Project.json';
 import Lottie from 'react-lottie';
 import Typewriter from 'typewriter-effect';
 import {
@@ -34,9 +34,9 @@ import {
   PROJECT,
   PROFILE,
   CREATE_ID,
-} from "../helper/Strings";
-import { getResume } from '../helper/API/Resume';
-import { setAllData } from "../Redux/Actions/index";
+} from "../../helper/Strings";
+import { getResume } from '../../helper/API/Resume';
+import { setAllData } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
 
 const inputs = [

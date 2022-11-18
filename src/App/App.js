@@ -1,11 +1,11 @@
 import AppBar from "../Components/NavBar/NavBar";
 import { Stack } from "@mui/system";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ChooseTemplate from "../ChooseTemplate/ChooseTemplate";
-import DownloadResume from "../DownloadResume/DownloadResume";
+import ChooseTemplate from "../Pages/ChooseTemplate/ChooseTemplate";
+import DownloadResume from "../Pages/DownloadResume/DownloadResume";
 import Profile from "../Profile/Profile";
-import Collector from "../Collector/Collector";
-import Home from "../Home/Home";
+import Collector from "../Pages/Collector/Collector";
+import Home from "../Pages/Home/Home";
 import NotFound from "../NotFound";
 
 const App = () => {

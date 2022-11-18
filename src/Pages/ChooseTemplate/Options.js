@@ -1,7 +1,7 @@
 
 import { Avatar, Grid, Paper, Typography, Button } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../helper/Strings";
+import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../../helper/Strings";
 
 const Options = () => {
 
