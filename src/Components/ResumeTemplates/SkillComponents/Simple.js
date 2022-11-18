@@ -1,6 +1,6 @@
-import { Divide } from '../Helper/Design';
+import { Divide } from '../../Components/ResumeTemplates/helper/Design';
 import { View, Text } from '@react-pdf/renderer';
-import Style from '../Helper/Style';
+import Style from '../../Components/ResumeTemplates/helper/Style';
 
 const Skill = ({ skills, color }) => {
   return (

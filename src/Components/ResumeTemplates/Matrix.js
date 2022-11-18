@@ -1,13 +1,13 @@
-import Experience from "./ExperienceComponents/Simple";
-import Project from "./ProjectComponents/Simple";
-import Name from './NameComponents/Simple';
-import Profile from './ProfileComponents/Simple';
-import About from './AboutComponents/Simple';
-import Education from "./EducationComponents/Simple";
-import Skill from "./SkillsComponents/Simple";
+import Experience from "../../ResumeTemplates/ExperienceComponents/Simple";
+import Project from "../../ResumeTemplates/ProjectComponents/Simple";
+import Name from '../../ResumeTemplates/NameComponents/Simple';
+import Profile from '../../ResumeTemplates/ProfileComponents/Simple';
+import About from '../../ResumeTemplates/AboutComponents/Simple';
+import Education from "../../ResumeTemplates/EducationComponents/Simple";
+import Skill from "../../ResumeTemplates/SkillsComponents/Simple";
 import { Document, Page, View } from "@react-pdf/renderer";
-import { tempData } from "./Helper/TempData";
-import Style from './Helper/Style';
+import { tempData } from "./helper/TempData";
+import Style from './helper/Style';
 
 const Matrix = ({ data, color }) => {
     data = data.name.length === 0 ? tempData : data;

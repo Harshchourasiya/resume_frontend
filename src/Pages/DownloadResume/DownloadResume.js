@@ -2,8 +2,8 @@ import { Container, Stack, IconButton, Box, Typography, Button, Dialog, DialogTi
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../../helper/Strings";
-import Simple from "../../ResumeTemplates/Simple";
-import Matrix from "../../ResumeTemplates/Matrix";
+import Simple from "../../Components/ResumeTemplates/Simple";
+import Matrix from "../../Components/ResumeTemplates/Matrix";
 import { PDFViewer } from "@react-pdf/renderer";
 import { connect } from 'react-redux'
 import { Report } from "@mui/icons-material";

@@ -1,5 +1,5 @@
 import { View, Text } from '@react-pdf/renderer';
-import Style from '../Helper/Style';
+import Style from '../../Components/ResumeTemplates/helper/Style';
 
 const Name = ({ name, title, style }) => {
   return (
