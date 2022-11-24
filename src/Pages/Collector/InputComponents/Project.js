@@ -4,6 +4,9 @@ import { addProject, removeProject } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_PROJECT } from "../../../helper/InitialState";
+import { isProjectValid } from "./Validator/Validator";
+import getProjectTextFieldData from "../js/getProjectTextFieldData";
+
 const AddProject = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.projects[props.idx] : EMPTY_PROJECT;
@@ -37,32 +40,9 @@ const AddProject = (props) => {
     props.removeProject(props.idx);
   }
 
-  const inputs = [
-    {
-      label: "Enter your Project Name",
-      value: project.name,
-      helperText: "Name should be between 1 to 50 characters",
-      onChange: setName,
-    }, {
-      label: "Enter your Project Details",
-      value: project.detail,
-      helperText: "Detail should be between 1 to 300 characters",
-      onChange: setDetail,
-      multiline: true
-    },
-    {
-      label: "Enter your Project Link",
-      value: project.link,
-      helperText: "Link must be URL",
-      onChange: setLink,
-    },
-  ]
+  const inputs = getProjectTextFieldData(project, setName, setDetail, setLink);
 
-  const isValid = () => {
-    return (
-      project.name.length === 0 || project.detail.length === 0 || project.link.length === 0
-    );
-  }
+ 
   return (
     <Box sx={{ margin: 'auto', width: '100%' }}>
       <Stack spacing={2}>
@@ -88,7 +68,7 @@ const AddProject = (props) => {
       </Stack>
 
       {
-        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isValid()}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isProjectValid(project)}>Add</Button>
       }
     </Box>
   );

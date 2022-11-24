@@ -4,6 +4,7 @@ import { addProfile, removeProfile } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_PROFILE } from "../../../helper/InitialState";
+import { isProfileValid } from "./Validator/Validator";
 const AddProfile = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.profiles[props.idx] : EMPTY_PROFILE;
@@ -31,11 +32,6 @@ const AddProfile = (props) => {
     props.removeProfile(props.idx);
   }
 
-  const isValid = () => {
-    return (
-      profile.name.length === 0 || profile.link.length === 0
-    );
-  }
   return (
     <Box sx={{ margin: 'auto', width: '100%' }}>
       <Stack spacing={2}>
@@ -57,7 +53,7 @@ const AddProfile = (props) => {
       </Stack>
 
       {
-        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isValid()}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isProfileValid(profile)}>Add</Button>
       }
     </Box>
   );

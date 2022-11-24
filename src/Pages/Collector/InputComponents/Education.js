@@ -4,6 +4,8 @@ import { addEducation, removeEducation } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_EDUCATION } from "../../../helper/InitialState";
+import { isEducationValid } from "./Validator/Validator";
+import getEducationTextFieldData from "../js/getEducationTextFieldData";
 
 const AddEducation = (props) => {
   const isNotEmpty = (props.idx !== -1);
@@ -52,45 +54,7 @@ const AddEducation = (props) => {
     props.removeEducation(props.idx);
   }
 
-  const inputs = [
-    {
-      label: "College Or School Name",
-      value: education.collegeName,
-      helperText: "Enter College Name must be between 1 to 100 characters",
-      onChange: setCollegeName
-    },
-    {
-      label: "Enter Your Major",
-      value: education.major,
-      helperText: "Enter Major must be between 1 to 50 characters",
-      onChange: setMajor
-    },
-    {
-      label: "Enter your CGPA",
-      value: education.CGPA,
-      helperText: "Enter CGPA must be between 1 to 4 characters",
-      onChange: setCGPA
-    },
-    {
-      label: "Starting Date",
-      value: education.starting,
-      helperText: "Enter Starting Date must be like May 2021 or 01-07-2020",
-      onChange: setStartingDate
-    },
-    {
-      label: "Ending Date",
-      value: education.ending,
-      helperText: "Enter Starting Date must be like May 2021 or 01-07-2020 or Present",
-      onChange: setEndingDate
-    },
-  ];
-
-  const isValid = () => {
-    return (
-      education.collegeName.length === 0 || education.major.length === 0
-      || education.CGPA.length === 0 || education.starting.length === 0 || education.ending.length === 0
-    );
-  }
+  const inputs = getEducationTextFieldData(education, setCollegeName, setMajor, setCGPA, setStartingDate, setEndingDate);
 
   return (
     <Box sx={{ margin: 'auto', width: '100%' }}>
@@ -111,7 +75,7 @@ const AddEducation = (props) => {
 
       {
         isNotEmpty ? <Button onClick={deleteData}>Remove</Button>
-          : <Button onClick={addData} disabled={isValid()}>Add</Button>
+          : <Button onClick={addData} disabled={isEducationValid(education)}>Add</Button>
       }
     </Box>
   );

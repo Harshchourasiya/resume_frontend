@@ -4,6 +4,9 @@ import { addExperience, removeExperience } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_EXPERIENCE } from "../../../helper/InitialState";
+import { isExperienceValid } from "./Validator/Validator";
+import getExperienceTextFieldData from "../js/getExperienceTextFieldData";
+
 const AddExperience = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.experiences[props.idx] : EMPTY_EXPERIENCE;
@@ -50,46 +53,7 @@ const AddExperience = (props) => {
     props.removeExperience(props.idx);
   }
 
-  const inputs = [
-    {
-      label: "Enter Company Name",
-      value: experience.companyName,
-      helperText: "Enter Company Name must be between 1 to 100 characters",
-      onChange: setCompanyName
-    },
-    {
-      label: "Enter Your Position",
-      value: experience.position,
-      helperText: "Enter Major must be between 1 to 50 characters",
-      onChange: setPosition
-    },
-    {
-      label: "Enter your Duties",
-      value: experience.duties,
-      helperText: "Enter Duties should be between 100 to 300 characters",
-      onChange: setDuties,
-      multiline: true
-    },
-    {
-      label: "Starting Date",
-      value: experience.starting,
-      helperText: "Enter Starting Date must be like May 2021 or 01-07-2020",
-      onChange: setStartingDate
-    },
-    {
-      label: "Ending Date",
-      value: experience.ending,
-      helperText: "Enter Starting Date must be like May 2021 or 01-07-2020 or Present",
-      onChange: setEndingDate
-    },
-  ];
-
-  const isValid = () => {
-    return (
-      experience.companyName.length === 0 || experience.position.length === 0
-      || experience.duties.length === 0 || experience.starting.length === 0 || experience.ending.length === 0
-    );
-  }
+  const inputs = getExperienceTextFieldData(experience, setCompanyName, setPosition, setDuties, setStartingDate, setEndingDate);
 
   return (
     <Box sx={{ margin: 'auto', width: '100%' }}>
@@ -115,7 +79,7 @@ const AddExperience = (props) => {
       </Stack>
 
       {
-        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isValid()}>Add</Button>
+        isNotEmpty ? <Button onClick={deleteData}>Remove</Button> : <Button onClick={addData} disabled={isExperienceValid(experience)}>Add</Button>
       }
     </Box>
   );

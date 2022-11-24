@@ -1,41 +1,13 @@
-import { Avatar, Container, Stack, Typography, Button, Divider, Paper, useTheme, Box, CircularProgress } from "@mui/material";
+import { Avatar, Container, Stack, Typography, Button, Divider, useTheme, Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteResume } from "../../helper/API/Resume";
 import { getUserInfo, logoutUser } from "../../helper/API/User";
 import { CREATE_ID } from "../../helper/Strings";
 import Lottie from 'react-lottie';
 import Empty from '../../LottieJSON/Empty.json';
-import DescriptionIcon from '@mui/icons-material/Description';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { setIsUser } from "../../Redux/Actions";
 import { connect } from "react-redux";
-
-const Resume = ({ resume, navigate, remover }) => {
-    const onDeleteClick = () => {
-        deleteResume({ resumeId: resume.ResumeId });
-        remover(resume)
-    }
-    return (
-        <Paper>
-            <Stack>
-                <Button onClick={() => {
-                    navigate("../collector?id=" + resume.ResumeId + "&name=" + resume.ResumeName);
-                }}>
-
-                    <Container>
-                        <DescriptionIcon />
-                        <Typography>{resume.ResumeName}</Typography>
-                    </Container>
-                </Button>
-                <Button variant="contained" onClick={onDeleteClick} startIcon={<DeleteIcon />} sx={{ backgroundColor: '#FF0000', color: '#FFF' }}>
-                    Delete
-                </Button>
-            </Stack>
-        </Paper>
-    );
-}
-
+import {Resume} from './Component/Resume';
 
 const Profile = (props) => {
     const navigate = useNavigate();
