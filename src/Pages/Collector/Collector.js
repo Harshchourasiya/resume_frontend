@@ -1,7 +1,6 @@
 import {
   Box,
   Container,
-  Typography,
   Button,
   Stack,
   CircularProgress,
@@ -10,114 +9,13 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react";
-import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
-import Addable from "./InputComponents/Addable";
-import AddExperience from "./InputComponents/Experience";
-import AddEducation from "./InputComponents/Education";
-import AddSkill from "./InputComponents/Skill";
-import AddProject from "./InputComponents/Project";
-import AddProfile from "./InputComponents/Profile";
-import Name from '../../LottieJSON/Name.json';
-import Title from '../../LottieJSON/Title.json';
-import AboutMe from '../../LottieJSON/AboutMe.json';
-import Experience from '../../LottieJSON/Experience.json';
-import Education from '../../LottieJSON/Education.json';
-import Profile from '../../LottieJSON/Profile.json';
-import Skills from '../../LottieJSON/Skills.json';
-import Project from '../../LottieJSON/Project.json';
-import Lottie from 'react-lottie';
-import Typewriter from 'typewriter-effect';
-import {
-  EXPERIENCE,
-  EDUCATION,
-  SKILL,
-  PROJECT,
-  PROFILE,
-  CREATE_ID,
-} from "../../helper/Strings";
+import {CREATE_ID} from "../../helper/Strings";
 import { getResume } from '../../helper/API/Resume';
 import { setAllData } from "../../Redux/Actions/index";
 import { connect } from "react-redux";
-
-const inputs = [
-  {
-    title: "Name",
-    component: <NameInput />,
-    json: Name
-  },
-  {
-    title: "Title",
-    component: <TitleInput />,
-    json: Title
-  },
-  {
-    title: "Objective",
-    component: <AboutMeInput />,
-    json: AboutMe
-  },
-
-  {
-    title: "Experiences",
-    component: <Addable component={AddExperience} type={EXPERIENCE} />,
-    json: Experience
-  },
-
-  {
-    title: "Education",
-    component: <Addable component={AddEducation} type={EDUCATION} />,
-    json: Education
-  },
-  {
-    title: "Skills",
-    component: <Addable component={AddSkill} type={SKILL} />,
-    json: Skills
-  },
-  {
-    title: "Projects",
-    component: <Addable component={AddProject} type={PROJECT} />,
-    json: Project
-  },
-  {
-    title: "Profiles",
-    component: <Addable component={AddProfile} type={PROFILE} />,
-    json: Profile
-  },
-];
-
-const renderInputComponent = (idx) => {
-  return (
-    <Stack
-      container
-      direction="column"
-      justifyContent="space-between"
-      spacing={2}
-    >
-      <Lottie
-        options={{ animationData: inputs[idx].json, loop: false }}
-        height={100}
-        width={100}
-      />
-      <Stack direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}>
-        <Typography variant="h3">
-          Enter Your
-        </Typography>
-        <Typography variant="h3" sx={{ color: '#e44747' }}>
-          <Typewriter
-            options={{
-              strings: inputs[idx].title,
-              autoStart: true,
-              loop: false,
-            }}
-          />
-        </Typography>
-      </Stack>
-      {inputs[idx].component}
-    </Stack >
-  )
-}
+import getUrlFromResumeID from './js/getUrlFromResumeID';
+import {COLLECTOR_INPUTS} from '../../helper/InitialState';
+import renderInputComponent from "./renderInputComponent";
 
 const Collector = (props) => {
   const [idx, setIdx] = useState(0);
@@ -142,10 +40,7 @@ const Collector = (props) => {
 
 
   const onFinishClick = () => {
-    let url = "/choose";
-    url += (resumeId !== null ? "?id=" + resumeId : "");
-    url += (resumeName !== null ? "&name=" + resumeName : "");
-    navigate(url);
+    navigate(getUrlFromResumeID(resumeId, resumeName));
   }
 
   const move = (value) => {
@@ -163,8 +58,7 @@ const Collector = (props) => {
       <Stack
         direction="column"
         justifyContent="space-between"
-        spacing={5}
-      >
+        spacing={5}>
 
         {
           loading ?
@@ -191,7 +85,7 @@ const Collector = (props) => {
               </Button>
             </Box>
             {
-              idx === inputs.length - 1 ? <Button onClick={onFinishClick} >
+              idx === COLLECTOR_INPUTS.length - 1 ? <Button onClick={onFinishClick} >
                 Finish
               </Button> :
                 <Box>
