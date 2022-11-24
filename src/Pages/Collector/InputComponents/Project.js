@@ -4,6 +4,7 @@ import { addProject, removeProject } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_PROJECT } from "../../../helper/InitialState";
+
 const AddProject = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.projects[props.idx] : EMPTY_PROJECT;

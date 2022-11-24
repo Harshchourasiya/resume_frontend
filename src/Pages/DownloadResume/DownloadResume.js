@@ -1,64 +1,14 @@
-import { Container, Stack, IconButton, Box, Typography, Button, Dialog, DialogTitle, InputAdornment, TextField, Snackbar, Alert } from "@mui/material";
+import { Container, Stack, IconButton, Box, Typography, Button, Snackbar, Alert } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { SIMPLE_ID, MATRIX_ID, DARK_RED_MATRIX_ID, DARK_RED_SIMPLE_ID } from "../../helper/Strings";
-import Simple from "../../Components/ResumeTemplates/Simple";
-import Matrix from "../../Components/ResumeTemplates/Matrix";
 import { PDFViewer } from "@react-pdf/renderer";
 import { connect } from 'react-redux'
-import { Report } from "@mui/icons-material";
 import { useState } from "react";
 import { CreateOrSaveResume } from "../../helper/API/Resume";
 import { setData } from '../../helper/UtilityMethods';
+import { getResumeTemplate } from "./js/getResumeTemplate";
+import { ResumeNameDialog } from "./Dialog/ResumeNameDialog";
 
-const BLACK = "#000";
-const DARK_RED = "#e44747";
-
-const getResumeTemplate = (id, props) => {
-    switch (id) {
-        case SIMPLE_ID:
-            return <Simple data={props} color={BLACK} />;
-        case MATRIX_ID:
-            return <Matrix data={props} color={BLACK} />
-        case DARK_RED_MATRIX_ID:
-            return <Matrix data={props} color={DARK_RED} />
-        case DARK_RED_SIMPLE_ID:
-            return <Simple data={props} color={DARK_RED} />;
-        default:
-            return <Simple data={props} color={BLACK} />;
-    }
-}
-
-const ResumeNameDialog = (props) => {
-    const { setOpen, open, setResumeName, toSaveResume, resumeName } = props;
-
-    const onTextEnter = (event) => {
-        setResumeName(event.target.value);
-    }
-    return (
-        <Dialog maxWidth={'sm'} fullWidth onClose={() => setOpen(false)} open={open}>
-            <DialogTitle>Resume Name</DialogTitle>
-            <TextField
-                id="input-with-icon-adornment"
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <Report />
-                        </InputAdornment>
-                    ),
-                }}
-                required={true}
-                type="text"
-                onChange={onTextEnter}
-                placeholder="Enter Resume Name..."
-                value={resumeName}
-                sx={{ margin: '10px' }}
-            />
-            <Button variant="contained" sx={{ backgroundColor: DARK_RED, width: '200px', margin: 'auto' }} onClick={() => toSaveResume()}>Save</Button>
-            <Button onClick={() => setOpen(false)}>Close</Button>
-        </Dialog>
-    );
-}
 
 const DownloadResume = (props) => {
 
@@ -74,8 +24,8 @@ const DownloadResume = (props) => {
 
     const toSaveResume = () => {
         const data = {};
-        setData(data, props);
         const body = {};
+        setData(data, props);
         if (resumeName.length !== 0) {
             body.name = resumeName;
         }

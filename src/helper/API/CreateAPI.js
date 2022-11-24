@@ -22,7 +22,6 @@ const sendOTP = async (data, setData) => {
 
 
 const verifyOTP = async(data, setRes) => {
-  console.log(data);
     await fetch(API_USER + "otpverification", {
         method: "POST",
         body: JSON.stringify(data),
