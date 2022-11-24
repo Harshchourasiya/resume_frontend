@@ -50,6 +50,11 @@ const HEADER = {
     "Accept": "application/json",
 }
 
+// file location uris
+const STATIC = "/static";
+const TEMPLATEIMG_LOCATION = STATIC+"/TemplateIMG";
+
+
 export {
     ADD_NAME,
     ADD_TITLE,
@@ -88,5 +93,7 @@ export {
     CREATE_ID,
 
 
-    HEADER
+    HEADER,
+
+    TEMPLATEIMG_LOCATION
 }
