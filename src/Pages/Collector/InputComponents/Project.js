@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_PROJECT } from "../../../helper/InitialState";
 import { isProjectValid } from "./Validator/Validator";
-import getProjectTextFieldData from "../js/getProjectTextfieldData";
+import getProjectTextFieldData from "../js/getProjectTextFieldData";
 
 const AddProject = (props) => {
   const isNotEmpty = (props.idx !== -1);

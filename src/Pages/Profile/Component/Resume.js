@@ -1,5 +1,5 @@
 import { Container, Stack, Typography, Button, Paper } from "@mui/material";
-import { deleteResume } from "../../helper/API/Resume";
+import { deleteResume } from "../../../helper/API/Resume";
 import DescriptionIcon from '@mui/icons-material/Description';
 import DeleteIcon from '@mui/icons-material/Delete';
 

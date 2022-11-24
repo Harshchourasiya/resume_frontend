@@ -4,7 +4,7 @@ import { addEducation, removeEducation } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_EDUCATION } from "../../../helper/InitialState";
-import { isEducationValid } from "./utility/Validator";
+import { isEducationValid } from "./Validator/Validator";
 import getEducationTextFieldData from "../js/getEducationTextFieldData";
 
 const AddEducation = (props) => {

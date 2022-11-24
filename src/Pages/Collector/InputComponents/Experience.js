@@ -4,7 +4,7 @@ import { addExperience, removeExperience } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_EXPERIENCE } from "../../../helper/InitialState";
-import { isExperienceValid } from "./utility/Validator";
+import { isExperienceValid } from "./Validator/Validator";
 import getExperienceTextFieldData from "../js/getExperienceTextFieldData";
 
 const AddExperience = (props) => {

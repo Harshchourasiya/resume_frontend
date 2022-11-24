@@ -4,7 +4,7 @@ import { addProfile, removeProfile } from "../../../Redux/Actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { EMPTY_PROFILE } from "../../../helper/InitialState";
-import { isProfileValid } from "./utility/Validator";
+import { isProfileValid } from "./Validator/Validator";
 const AddProfile = (props) => {
   const isNotEmpty = (props.idx !== -1);
   const data = isNotEmpty ? props.profiles[props.idx] : EMPTY_PROFILE;

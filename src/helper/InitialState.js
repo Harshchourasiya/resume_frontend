@@ -5,21 +5,21 @@ import {
     PROJECT,
     PROFILE,
 } from "./Strings";
-import { NameInput, TitleInput, AboutMeInput } from "./InputComponents/Input";
-import Addable from "./InputComponents/Addable";
-import AddExperience from "./InputComponents/Experience";
-import AddEducation from "./InputComponents/Education";
-import AddSkill from "./InputComponents/Skill";
-import AddProject from "./InputComponents/Project";
-import AddProfile from "./InputComponents/Profile";
-import Name from '../../LottieJSON/Name.json';
-import Title from '../../LottieJSON/Title.json';
-import AboutMe from '../../LottieJSON/AboutMe.json';
-import Experience from '../../LottieJSON/Experience.json';
-import Education from '../../LottieJSON/Education.json';
-import Profile from '../../LottieJSON/Profile.json';
-import Skills from '../../LottieJSON/Skills.json';
-import Project from '../../LottieJSON/Project.json';
+import { NameInput, TitleInput, AboutMeInput } from "../Pages/Collector/InputComponents/Input";
+import Addable from "../Pages/Collector/InputComponents/Addable";
+import AddExperience from "../Pages/Collector/InputComponents/Experience";
+import AddEducation from "../Pages/Collector/InputComponents/Education";
+import AddSkill from "../Pages/Collector/InputComponents/Skill";
+import AddProject from "../Pages/Collector/InputComponents/Project";
+import AddProfile from "../Pages/Collector/InputComponents/Profile";
+import Name from '../LottieJSON/Name.json';
+import Title from '../LottieJSON/Title.json';
+import AboutMe from '../LottieJSON/AboutMe.json';
+import Experience from '../LottieJSON/Experience.json';
+import Education from '../LottieJSON/Education.json';
+import Profile from '../LottieJSON/Profile.json';
+import Skills from '../LottieJSON/Skills.json';
+import Project from '../LottieJSON/Project.json';
 
 
 
